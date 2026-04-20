@@ -1,0 +1,39 @@
+* {
+margin: 0;
+padding: 0;
+}
+body {
+    background-color: white;
+}
+header {
+    background-color: blue;
+}
+header h1 {
+    padding: 30px;
+}
+h2 {
+    padding: 5px 0;
+}
+h3 {
+    padding: 5px 0;
+}
+nav {
+    columns: 5;
+    padding-bottom: 20px;
+}
+nav a {
+    padding: 10px;
+    background-color: white;
+    border: 2px solid black;
+    border-radius: 20px;
+}
+li {
+    list-style: none;
+}
+a {
+    color: black;
+    text-decoration: none;
+}
+footer {
+    background-color: blue;
+}

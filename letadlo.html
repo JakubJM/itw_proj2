@@ -1,0 +1,456 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" type="image/x-icon" href="foto/boom.png">
+    <link rel="stylesheet" href="css/style_let.css">
+    <title>Letadlo</title>
+
+</head>
+<body>
+    <div id="div"><h1 id="bod">Score: 0</h1>   
+        <img id="images0" class="images">
+        <img id="images1" class="images">
+        <img id="images2" class="images">
+        <img id="images3" class="images">
+        <img id="images4" class="images">
+        <img id="images5" class="images">
+        <img id="images6" class="images">
+        <img id="images7" class="images">
+        <img id="images8" class="images">
+        <img id="images9" class="images">
+        <img id="images10" class="images">
+        <img id="images11" class="images">
+        <img id="images12" class="images">
+        <img id="images13" class="images">
+        <img id="heav"src="foto/tankHeavyright.png"style="display: none;">
+        <img id="bomb"src="foto/AN-M65A1_pad.png" style="display: none;">
+    <img id="booom"src="foto/boom.png" style="display: none;">
+    </div>
+    <nav id="nav"><img id="runway" src="foto/runway.png"></nav>
+    <a id="tl7" href="pohyb.html" >RESTART</a>   
+    <img id="obr" src="foto/bomberwithwheel.png">
+    <footer><button id="home"><a href="menu.html">Home</a></button>
+            <button id="tl1" onclick="start()">Start</button>
+        <button id="tl2" style="display: none;" onclick="stop()">Pause</button>
+        <input type="number"placeholder="rychlost" style="display: none;" id="tl3" >
+        <button id="tl4" onclick="boom()">BOOM</button>
+        <button id="tl5" onclick="podvozek()">Landing gear</button>
+        <p><select id="muni" onclick="munice()">
+            <option value="1" >AN-M65A1 (500lb)</option>    
+            <option value="2">AN-Mk_1 (1600lb)</option>  
+            <option value="3" >FAB_5000 (5000lb)</option>    
+            <option value="4" >NUCLEAR</option>    
+            </select></p>
+            <img id="bombpicture" src="foto/AN-M65A1.png">
+            <img id="sipka"src="foto/sipka.png">
+            <img id="fuel"src="foto/controlFuel.png">
+            <h1 id="paliv">Fuel: 1700l</h1>
+            <h6 id="version">Beta version 0.1</h6>
+            <h6 id="jmeno">Jakub Machač</h6>
+            
+        </footer>  
+             
+      <script>
+        var cas2=0;
+        var rychlost=0;
+        var rev= false;
+        var up=innerHeight/1.5;
+        var let= false;
+        var reve=0;
+        var rev1=false
+        var po=0;
+        var fall = 0;
+        var pod = true;
+        var mun =1; 
+        var vybuch=0;
+        var crash=false;
+        var jed=0;
+        var zpet=false;
+        var jed1=0;
+        var obrazky=0;
+        var baf=false;
+        var letbomb=false;
+        var heavy=false;
+        var score=0;
+        var sek=0;
+        var heavytank=true;
+        var zniceno=false;
+        var bom=true;
+        var nafta=1700;
+        var boton=45;
+        var pause=false;
+        muni=setInterval("munice()");
+        document.getElementById("version").style.left=window.innerWidth-140 + "px";
+        document.getElementById("div").style.height=window.innerHeight/2+"px";
+        document.getElementById("nav").style.height=window.innerHeight/2+"px";
+        document.getElementById("runway").style.top=window.innerHeight/1.5+100+"px";
+        document.getElementById("obr").style.top=window.innerHeight/1.5 + "px";
+        var images = ["foto/tankHeavyRightFire.png","foto/tankHeavyleftFire.png"];
+        
+        function munice()
+        {
+        var typ = document.getElementById("muni").value;
+            if (typ == "1" && pause==false) {
+                bombpicture.src="foto/AN-M65A1.png";
+                if(fall==0){
+                bomb.src="foto/AN-M65A1_pad.png";
+                mun =1;}
+            }
+            if (typ == "2" && pause==false) {
+                bombpicture.src="foto/AN-Mk_1_1600lb.png";
+                if(fall==0){
+                bomb.src="foto/AN-Mk_1_1600lb_pad.png";
+                mun =2;}
+            }
+            if (typ == "3" && pause==false) {
+                bombpicture.src="foto/FAB_5000.png";
+                if(fall==0){
+                bomb.src="foto/FAB_5000_pad.png";
+                mun =3;}
+            }
+            if (typ == "4" && pause==false) {
+                bombpicture.src="foto/NUCLEAR1.png";
+                if(fall==0){
+                bomb.src="foto/NUCLEAR_pad.png";
+                mun =4;}
+            }
+        }
+        function start()
+        {
+            if(let==true)
+            {
+                tanksEnd=setInterval("tanks()",rychlost);
+            }
+            pause=false;
+            bom=true;
+            if(nafta!=0)
+            {
+            document.getElementById("tl2").style.display="block";
+            document.getElementById("tl1").style.display="none";
+            rychlost = 1000/document.getElementById("tl3").value;
+            document.getElementById("tl3").style.display="none";
+            cas1 = window.setInterval("jizda()",rychlost);
+            document.getElementById("tl2").style.backgroundColor="red";
+            document.getElementById("tl2").style.color="darkred";
+            document.getElementById("tl2").style.border="2px solid darkred";
+        }
+            }
+        function podvozek()
+        {
+            if(up!=window.innerHeight/1.5 && pause==false)
+            {
+            if(pod==true && rev==false)
+            {
+                document.getElementById("tl5").style.backgroundColor="red";
+                document.getElementById("tl5").style.color="darkred";
+                document.getElementById("tl5").style.border="2px solid darkred";
+                pod=false;
+                obr.src="foto/bomberright.png";
+            }
+            else if(pod==false && rev==false)
+            {
+                document.getElementById("tl5").style.backgroundColor="green";
+                document.getElementById("tl5").style.color="darkgreen";
+                document.getElementById("tl5").style.border="2px solid darkgreen";
+                pod=true;
+                obr.src="foto/bomberwithwheel.png";
+            }
+            else if(pod==true&& rev==true)
+            {
+                pod=false;
+                document.getElementById("tl5").style.backgroundColor="red";
+                document.getElementById("tl5").style.color="darkred";
+                document.getElementById("tl5").style.border="2px solid darkred";
+                obr.src="foto/bomberleft.png";
+            }
+            else if(pod==false && rev==true)
+            {
+                pod=true;
+                document.getElementById("tl5").style.backgroundColor="green";
+                document.getElementById("tl5").style.color="darkgreen";
+                document.getElementById("tl5").style.border="2px solid darkgreen";
+                pod=true;
+                obr.src="foto/bomberwithwheelleft.png";
+            }
+        }
+        }
+        
+        function jizda()
+        {
+            document.getElementById("version").style.left=window.innerWidth-140 + "px";
+            //palivo
+            if(nafta>=0)
+            {
+            nafta=nafta-0.1
+            document.getElementById("paliv").innerHTML = "Fuel: "+Math.round(nafta)+"l";
+            }
+            if(nafta<=0)
+            {
+                clearInterval(falling);
+                clearInterval(tanksEnd) ;
+                clearInterval(cas1);
+                document.getElementById("tl2").style.display="none";
+                document.getElementById("tl1").style.display="block";
+                document.getElementById("tl7").style.display="block";
+                document.getElementById("tl7").style.top=window.innerHeight/4 +"px";
+            }
+            if(nafta>=0)
+            {
+            if(boton>=-45)
+            {
+                boton=boton-0.0053;
+            document.getElementById("sipka").style.marginBottom=boton+"px"; 
+            }
+            //barva tlačítka BOOM
+            if(bom==false)
+            {
+                document.getElementById("tl4").style.backgroundColor="red";
+                document.getElementById("tl4").style.color="darkred";
+                document.getElementById("tl4").style.border="2px solid darkred";
+            }
+            else if(bom==true)
+            {
+                document.getElementById("tl4").style.backgroundColor="green";
+                document.getElementById("tl4").style.color="darkgreen";
+                document.getElementById("tl4").style.border="2px solid darkgreen";
+            }
+            //score
+            document.getElementById("bod").innerHTML = "Score: " + score;
+            
+            //letadlo
+            console.log(cas2);
+            if(up<=0)
+            {
+                up=0;
+            }
+            if (cas2 <400 && up>0 && rev == false && let== false && fall+500 )
+            {
+                cas2++;
+                document.getElementById("obr").style.left=cas2 + "px";
+                
+            }
+            //else if(cas2 <=window.innerWidth - 476 && up==0 && rev==false && let== false)
+            //{
+                //obr.src="foto/bomberright.png";
+                //cas2++;
+                //document.getElementById("obr").style.marginLeft=cas2 + "px";
+            //}
+        
+            else if(cas2 >390 && up >0 && rev==false && let== false)
+            {
+                cas2++;
+                document.getElementById("obr").style.left=cas2 + "px";
+                up--;
+                document.getElementById("obr").style.top=up +"px";
+            }
+            else if(cas2 <=window.innerWidth - 480  && up <=0 && rev==false)
+            {
+                cas2++;
+                document.getElementById("obr").style.left=cas2 + "px";
+            }
+            else if(cas2 ==0 && up <=0 && rev==false && reve==1 && let==true && pod==false)
+            {
+                obr.src="foto/bomberleft.png"
+            }
+            else if(cas2 ==0 && up <=0 && rev==false && reve==1 && let==true && pod==true)
+            {
+                obr.src="foto/bomberwithwheelleft.png"
+            }
+            else if(cas2 >=window.innerWidth - 480 && rev==false && let== false)
+            {
+                document.getElementById("runway").style.display="none";
+                cas2=0;
+                reve++;
+                tanksEnd=setInterval("tanks()",rychlost);
+                let=true;
+            }
+            else if(cas2 >=window.innerWidth - 480 && rev==false && let== true && pod==false)
+            {
+                obr.src="foto/bomberleft.png";
+                rev=true;
+            }
+            else if(cas2 >=window.innerWidth - 480 && rev==false && let== true && pod==true)
+            {
+                obr.src="foto/bomberwithwheelleft.png";
+                rev=true;
+            }
+            if (cas2 > 0 && rev == true && let== true)
+            {
+                cas2--;
+                document.getElementById("obr").style.left=cas2 + "px";
+            }
+            if(cas2==0 && rev==true &&let == true && pod==false)
+            {
+                obr.src="foto/bomberright.png";
+                rev=false;
+                po++;
+            }
+            if(cas2==0 && rev==true &&let == true && pod==true)
+            {
+                obr.src="foto/bomberwithwheel.png";
+                rev=false;
+                po++;
+            }
+            }
+        }
+        function stop()
+        {
+            pause=true;
+            bom=false;
+            document.getElementById("tl2").style.display="none";
+            document.getElementById("tl1").style.display="block";
+            document.getElementById("tl3").style.display="none";
+            clearInterval(cas1) ;
+            clearInterval(falling);
+            clearInterval(tanksEnd) ;
+            console.log(reve);
+            console.log(let);
+            console.log(po); 
+            console.log("tank"+jed); 
+            console.log("letbomb"+letbomb) ;
+            console.log("top="+boton); 
+            console.log(bom);
+            console.log("up="+up);
+        }
+        function boom()
+        { 
+            if(nafta>=0)
+            {
+            if(up==0 && rev == true &&bom==true && pause==false && let==true)
+            {
+            bom=false;
+            rev1=true;
+            vybuch=cas2;
+            letbomb=true
+            document.getElementById("bomb").style = "display: block;"; 
+            document.getElementById("bomb").style.left=cas2  + 50 + "px";
+            vybuch=cas2+50;
+            falling = window.setInterval("padani()",rychlost);
+            }
+            else if(up==0 && rev == false &&bom==true && pause==false && let==true)
+            {
+            bom=false;
+            rev1=false;
+            vybuch=cas2;
+            letbomb=true
+            document.getElementById("bomb").style = "display: block;"; 
+            document.getElementById("bomb").style.left=cas2 + 300 + "px";
+            vybuch=cas2+100;
+            falling = window.setInterval("padani()",rychlost);    
+        }
+        }          
+        }
+
+        function padani()
+        {             
+            fall++;
+            document.getElementById("bomb").style.top=fall+170 + "px";
+            if(fall + 500 >= window.innerHeight &&jed1-vybuch<=100 && jed1-vybuch>= -100 && rev1==false && pause==false) {                          //zmizení tanku
+                document.getElementById("heav").style.display="block";
+                if(heavytank==true)
+                {
+                    heavytank==false;
+                    score=score+100;
+                    document.getElementById("bod").innerHTML = "Score: " + score; 
+                    if(zpet==false){document.getElementById("images"+obrazky).src=images[0];}
+                    if(zpet==true){document.getElementById("images"+obrazky).src=images[1];}
+                    document.getElementById("images"+obrazky).style.left=jed1 + "px"
+                    document.getElementById("images"+obrazky).style.top=window.innerHeight-300 +"px";
+                    obrazky++;
+                    
+                }  
+            }
+            if(fall + 500 >= window.innerHeight &&jed1-vybuch<=0 && jed1-vybuch>= -200 && rev1==true && pause==false) {                          //zmizení tanku
+                document.getElementById("heav").style.display="block";
+                if(heavytank==true)
+                {
+                    heavytank==false;
+                    score=score+100;
+                    document.getElementById("bod").innerHTML = "Score: " + score;
+                    if(zpet==false){document.getElementById("images"+obrazky).src=images[0];}
+                    if(zpet==true){document.getElementById("images"+obrazky).src=images[1];}
+                    document.getElementById("images"+obrazky).style.left=jed1 + "px"
+                    document.getElementById("images"+obrazky).style.top=window.innerHeight-300 +"px"; 
+                    obrazky++;
+                }   
+            }
+            if(fall + 500>= window.innerHeight && rev1==false && pause==false && let==true) {
+                document.getElementById("bomb").style = "display: none;";
+                document.getElementById("booom").style.display="block";
+                sekund= window.setInterval("time()");
+                document.getElementById("booom").style.left=vybuch +"px";
+                document.getElementById("booom").style.top=fall+170+ "px";
+                fall=0;
+                clearInterval(falling);
+                console.log(vybuch); 
+                console.log(rev1);
+                console.log("bac"+vybuch-jed1);
+                letbomb=false;
+                bom=true;
+            }
+            if(fall + 500 >= window.innerHeight && rev1 ==true && pause==false && let==true) {
+                document.getElementById("bomb").style = "display: none;";
+                document.getElementById("booom").style.display="block";
+                sekund= window.setInterval("time()");  
+                document.getElementById("booom").style.left=vybuch-200 +"px";
+                document.getElementById("booom").style.top=fall+170 + "px";
+                fall=0;
+                clearInterval(falling);
+                console.log(vybuch);
+                console.log(rev1);
+                console.log("bac"+vybuch-jed1);
+                letbomb=false;
+                bom=true;
+            }
+    }
+    function time()
+    {
+    sek++;
+            if(sek==200 && pause==false)
+            {
+                console.log("sek="+sek);
+                sek=0;
+                clearInterval(sekund);
+                document.getElementById("booom").style.display="none";
+            }
+        }
+        function tanks()
+        {
+            //tankHeavy
+            if(let==true && heavy==false )
+            {
+                document.getElementById("heav").style.display="block";
+                heavy=true;
+            }
+            if(zpet==false && heavy==true)
+            {
+                jed++;
+                jed1=jed/2;
+                document.getElementById("heav").style.left=jed1 + "px"
+                document.getElementById("heav").style.top=window.innerHeight-300 +"px";
+                
+            }
+            if(jed1 >=window.innerWidth - 470 && heavy== true)
+            {
+                heav.src="foto/tankHeavyleft.png";
+                zpet=true;
+            }
+            if(zpet==true)
+            {
+                jed--;
+                jed1=jed/2
+                document.getElementById("heav").style.left=jed1 + "px";
+
+            }
+            if(jed1==0 && let== true )
+            {
+                heav.src="foto/tankHeavyright.png";
+                zpet=false;
+            }
+        }
+      </script>
+</body>
+</html>

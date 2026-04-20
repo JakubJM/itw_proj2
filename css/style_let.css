@@ -1,0 +1,166 @@
+* {
+            padding: 0;
+            margin: 0;
+            box-sizing: border-box;
+            font-family: verdana, Geneva, Tahoma, sans-serif;
+            text-align: center;
+            } 
+        #heav{
+            position: absolute;
+            height: 120px;
+            display: none;
+        }
+        #obr {
+            position: absolute;
+            top: 650px;
+            left: 0px;
+            width: 470px;
+            }
+        #bomb {
+            position: absolute;
+            margin-Left: 0px;
+            margin-top: 0px;
+            width: 100px;            
+        }
+        #booom {
+                position: absolute;
+                margin-top: 0px;
+                margin-left: 0px;
+                top: 0px;
+                left:0px
+        }
+        #bombpicture
+        {
+            height: 50px;
+            border:2px solid  darkslategray;
+        }
+        #fuel
+        {
+            height: 70px; 
+            width: 40px; 
+        }
+        #sipka
+        {
+            height: 20px;
+            margin-bottom: 45px;
+
+        }
+        #home
+        {
+            width: 70px;
+            height: 70px;
+            background-color: black;
+            color: white;
+            border:2px solid black;
+            border-radius: 30%;
+        }
+        #jmeno
+        {
+            position: absolute;
+            left: 0;
+            top: 103%;
+            color: rgba(0, 0, 0, 0.5);
+            font-size: 10px;
+        } 
+        #version{
+            position: absolute;
+            left: 0;
+            top: 103%;
+            color: rgba(0, 0, 0, 0.5);
+            font-size: 10px;
+        }
+        #tl7
+            {
+            display: none;
+            animation: blinker 3s linear infinite;
+            color: rgba(255, 255, 255, 0.322);
+            font-size: 2000%;
+            position: absolute;
+            left:0px;
+            right: 0px;
+            margin-left:auto;
+            margin-right:auto;
+        }
+        @keyframes blinker {
+            50% {
+                opacity: 0;
+            }
+        }
+        #runway
+        {
+            position: absolute;
+            top: 0px;
+        } 
+        footer      {
+      
+            position: absolute;  
+            bottom: 0;
+              width: calc(100% - 20px);
+              margin:10px 10px 10px 10px;
+              padding:10px 10px 10px 10px;
+              background-color: grey;
+              color: white;
+              border: 5px solid darkslategray;
+              text-align: center;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+              }
+        div    {
+            font-family: verdana, Geneva, Tahoma, sans-serif;
+            font-size: 1.1em;
+            display: block;
+            height: 500px;
+            background-color: rgb(79, 129, 189);
+            text-align: left;
+        }
+        nav     
+        {
+            height: 500px;
+            background-color: rgb(0, 175, 80);
+            text-align: left;
+        }
+        
+        a        {
+               text-decoration: none;
+               display: block;
+               color: white;
+               font-size: 1.4em;
+              }
+        button {
+            width: 70px;
+            height: 70px;
+            background-color: green;
+            color: darkgreen;
+            border:2px solid darkgreen;
+            border-radius: 50%;
+        }
+        #tl1{
+            background-color: green;
+            color: darkgreen;
+            border:2px solid darkgreen; }
+        #tl5{
+            background-color: green;
+            color: darkgreen;
+            border:2px solid darkgreen; }
+        #nav{
+            text-align: left;
+            }
+        #bod{text-align: left;}
+        input{
+            height: 40px;
+            border-radius: 20px;
+            text-align: center;
+        }
+        select {
+                height: 50px;
+                line-height: 50px;
+                font-size: 12pt;
+                border:2px solid  darkslategray;
+                }
+        .images{
+                position: absolute;
+                left: 0px;
+                top: 0px;
+                height: 120px;
+                }
