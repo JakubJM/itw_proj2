@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="icon" type="image/x-icon" href="foto/boom.png">
+    <link rel="icon" type="image/x-icon" href="img/plane/boom.png">
     <link rel="stylesheet" href="css/style_let.css">
     <title>Letadlo</title>
 
@@ -25,13 +25,13 @@
         <img id="images11" class="images">
         <img id="images12" class="images">
         <img id="images13" class="images">
-        <img id="heav"src="foto/tankHeavyright.png"style="display: none;">
-        <img id="bomb"src="foto/AN-M65A1_pad.png" style="display: none;">
-    <img id="booom"src="foto/boom.png" style="display: none;">
+        <img id="heav"src="img/plane/tankHeavyright.png"style="display: none;">
+        <img id="bomb"src="img/plane/AN-M65A1_pad.png" style="display: none;">
+    <img id="booom"src="img/plane/boom.png" style="display: none;">
     </div>
-    <nav id="nav"><img id="runway" src="foto/runway.png"></nav>
+    <nav id="nav"><img id="runway" src="img/plane/runway.png"></nav>
     <a id="tl7" href="pohyb.html" >RESTART</a>   
-    <img id="obr" src="foto/bomberwithwheel.png">
+    <img id="obr" src="img/plane/bomberwithwheel.png">
     <footer><button id="home"><a href="menu.html">Home</a></button>
             <button id="tl1" onclick="start()">Start</button>
         <button id="tl2" style="display: none;" onclick="stop()">Pause</button>
@@ -44,9 +44,9 @@
             <option value="3" >FAB_5000 (5000lb)</option>    
             <option value="4" >NUCLEAR</option>    
             </select></p>
-            <img id="bombpicture" src="foto/AN-M65A1.png">
-            <img id="sipka"src="foto/sipka.png">
-            <img id="fuel"src="foto/controlFuel.png">
+            <img id="bombpicture" src="img/plane/AN-M65A1.png">
+            <img id="sipka"src="img/plane/sipka.png">
+            <img id="fuel"src="img/plane/controlFuel.png">
             <h1 id="paliv">Fuel: 1700l</h1>
             <h6 id="version">Beta version 0.1</h6>
             <h6 id="jmeno">Jakub Machač</h6>
@@ -88,33 +88,33 @@
         document.getElementById("nav").style.height=window.innerHeight/2+"px";
         document.getElementById("runway").style.top=window.innerHeight/1.5+100+"px";
         document.getElementById("obr").style.top=window.innerHeight/1.5 + "px";
-        var images = ["foto/tankHeavyRightFire.png","foto/tankHeavyleftFire.png"];
+        var images = ["img/plane/tankHeavyRightFire.png","img/plane/tankHeavyleftFire.png"];
         
         function munice()
         {
         var typ = document.getElementById("muni").value;
             if (typ == "1" && pause==false) {
-                bombpicture.src="foto/AN-M65A1.png";
+                bombpicture.src="img/plane/AN-M65A1.png";
                 if(fall==0){
-                bomb.src="foto/AN-M65A1_pad.png";
+                bomb.src="img/plane/AN-M65A1_pad.png";
                 mun =1;}
             }
             if (typ == "2" && pause==false) {
-                bombpicture.src="foto/AN-Mk_1_1600lb.png";
+                bombpicture.src="img/plane/AN-Mk_1_1600lb.png";
                 if(fall==0){
-                bomb.src="foto/AN-Mk_1_1600lb_pad.png";
+                bomb.src="img/plane/AN-Mk_1_1600lb_pad.png";
                 mun =2;}
             }
             if (typ == "3" && pause==false) {
-                bombpicture.src="foto/FAB_5000.png";
+                bombpicture.src="img/plane/FAB_5000.png";
                 if(fall==0){
-                bomb.src="foto/FAB_5000_pad.png";
+                bomb.src="img/plane/FAB_5000_pad.png";
                 mun =3;}
             }
             if (typ == "4" && pause==false) {
-                bombpicture.src="foto/NUCLEAR1.png";
+                bombpicture.src="img/plane/NUCLEAR1.png";
                 if(fall==0){
-                bomb.src="foto/NUCLEAR_pad.png";
+                bomb.src="img/plane/NUCLEAR_pad.png";
                 mun =4;}
             }
         }
@@ -148,7 +148,7 @@
                 document.getElementById("tl5").style.color="darkred";
                 document.getElementById("tl5").style.border="2px solid darkred";
                 pod=false;
-                obr.src="foto/bomberright.png";
+                obr.src="img/plane/bomberright.png";
             }
             else if(pod==false && rev==false)
             {
@@ -156,7 +156,7 @@
                 document.getElementById("tl5").style.color="darkgreen";
                 document.getElementById("tl5").style.border="2px solid darkgreen";
                 pod=true;
-                obr.src="foto/bomberwithwheel.png";
+                obr.src="img/plane/bomberwithwheel.png";
             }
             else if(pod==true&& rev==true)
             {
@@ -164,7 +164,7 @@
                 document.getElementById("tl5").style.backgroundColor="red";
                 document.getElementById("tl5").style.color="darkred";
                 document.getElementById("tl5").style.border="2px solid darkred";
-                obr.src="foto/bomberleft.png";
+                obr.src="img/plane/bomberleft.png";
             }
             else if(pod==false && rev==true)
             {
@@ -173,7 +173,7 @@
                 document.getElementById("tl5").style.color="darkgreen";
                 document.getElementById("tl5").style.border="2px solid darkgreen";
                 pod=true;
-                obr.src="foto/bomberwithwheelleft.png";
+                obr.src="img/plane/bomberwithwheelleft.png";
             }
         }
         }
@@ -234,7 +234,7 @@
             }
             //else if(cas2 <=window.innerWidth - 476 && up==0 && rev==false && let== false)
             //{
-                //obr.src="foto/bomberright.png";
+                //obr.src="img/plane/bomberright.png";
                 //cas2++;
                 //document.getElementById("obr").style.marginLeft=cas2 + "px";
             //}
@@ -253,11 +253,11 @@
             }
             else if(cas2 ==0 && up <=0 && rev==false && reve==1 && let==true && pod==false)
             {
-                obr.src="foto/bomberleft.png"
+                obr.src="img/plane/bomberleft.png"
             }
             else if(cas2 ==0 && up <=0 && rev==false && reve==1 && let==true && pod==true)
             {
-                obr.src="foto/bomberwithwheelleft.png"
+                obr.src="img/plane/bomberwithwheelleft.png"
             }
             else if(cas2 >=window.innerWidth - 480 && rev==false && let== false)
             {
@@ -269,12 +269,12 @@
             }
             else if(cas2 >=window.innerWidth - 480 && rev==false && let== true && pod==false)
             {
-                obr.src="foto/bomberleft.png";
+                obr.src="img/plane/bomberleft.png";
                 rev=true;
             }
             else if(cas2 >=window.innerWidth - 480 && rev==false && let== true && pod==true)
             {
-                obr.src="foto/bomberwithwheelleft.png";
+                obr.src="img/plane/bomberwithwheelleft.png";
                 rev=true;
             }
             if (cas2 > 0 && rev == true && let== true)
@@ -284,13 +284,13 @@
             }
             if(cas2==0 && rev==true &&let == true && pod==false)
             {
-                obr.src="foto/bomberright.png";
+                obr.src="img/plane/bomberright.png";
                 rev=false;
                 po++;
             }
             if(cas2==0 && rev==true &&let == true && pod==true)
             {
-                obr.src="foto/bomberwithwheel.png";
+                obr.src="img/plane/bomberwithwheel.png";
                 rev=false;
                 po++;
             }
@@ -435,7 +435,7 @@
             }
             if(jed1 >=window.innerWidth - 470 && heavy== true)
             {
-                heav.src="foto/tankHeavyleft.png";
+                heav.src="img/plane/tankHeavyleft.png";
                 zpet=true;
             }
             if(zpet==true)
@@ -447,7 +447,7 @@
             }
             if(jed1==0 && let== true )
             {
-                heav.src="foto/tankHeavyright.png";
+                heav.src="img/plane/tankHeavyright.png";
                 zpet=false;
             }
         }
