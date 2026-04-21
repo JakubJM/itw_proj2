@@ -4,14 +4,16 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="css/style.css">
   <title>Moje stranka</title>
 </head>
 
 <body>
-    <div id="head">
-      <h4>Jakub Machač</h4>
-      <nav>
+    <div class="head">
+      <div class="menu">
         <ul>
           <li><a href="#home">O mě</a></li>
           <li><a href="#vzdelani">Vzdelani</a></li>
@@ -19,24 +21,23 @@
           <li><a href="#konicky">Konicky</a></li>
           <li><a href="#kontakt">Kontakty</a></li>
         </ul>
+      </div>
+      <nav>
+        <h3>Jakub Machac</h3>
+        <div class="ham_menu">
+          <span></span>
+          <span></span>
+          <span></span>
+        </div>
       </nav>
     </div>
     <section id="zakladni_udaje">
       <article>
-        <h2>O me</h2>
-        <p>Jmenuji se Jakub Machac. Je mi 21 let a bydlim v Jablonanech.</p>
       </article>
     </section>
     <section id="vzdelani">
-      <h2>Vzdelani</h2>
     </section>
     <section id="projekty">
-      <h2>Projekty</h2>
-      <article id="letadlo">
-        <a href="letadlo.html"><img src="img/plane.png" title="letadlo minihra"><p>JavaScript  letadlo</p></a>
-      </article>
-        <img src="img/3dprint.png" title="3d model kulometu"><p>Stavba airsoft kulometu</p>
-        <img src="img/arduino.jpg" title="arduino bomba"><p>Airsoft arduino bomba</p>
       </section>
     <section id="konicky">
       <h2>Konicky</h2>
@@ -83,8 +84,7 @@
       <h2>Kontakty</h2>
     </section>
     <footer>
-      <p>Jakub Machač</p>
-      <p>Github: <a href="https://github.com/JakubJM">zde</a></p>
     </footer>
+    <script src="js/ham_menu.js"></script>
 </body>
 </html>

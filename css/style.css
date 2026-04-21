@@ -10,27 +10,106 @@
     margin: 0;
     padding: 0;
     transition: 1s;
-}
-body {
-    background-color: white;
+    font-family: 'Roboto', sans-serif;
 }
 h2 {
     width: 100%;
     text-align: center;
     margin: 1rem;
 }
-
-section {
-    width: 100%;
+a {
+    text-decoration: none;
+    color: black;
 }
-#head {
-    columns: 2;
-    position: sticky;
-    top: 0;
+a:hover {
+    color: black;
+    text-decoration: underline;
+    transition: 1s;
+    cursor: pointer;
+}
+ul li {
+    list-style: none;
+}
+/*#region hamburger+head */
+.head {
     z-index: 100;
-    background-color: gray;
+    top: 0;
+    position: sticky;
 }
+.menu {
+    z-index: 100;
+    background-color: white;
+    height: 100vh;
+    width: 100%;
+    max-width: 450px;
+    position: fixed;
+    top:0;
+    right: -450px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    font-size: 2rem;
+    transition: .3s ease;
+}
+.menu.active {
+    right: 0;
+}
+nav {
+    color: black;
+    z-index: 100;
+    padding: 1rem;
+    display: flex;
+    top: 0;
+    position: sticky;
+    background-color: white;
+}
+.ham_menu {
+    z-index: 200;
+    height: 2rem;
+    width: 2rem;
+    margin-left: auto;
+    position: relative;
+    cursor: pointer;
+}
+.ham_menu span {
+    height: 0.2rem;
+    width: 100%;
+    background-color: black;
+    border-radius: 25px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    transition: .3s ease;
+}
+.ham_menu:hover span {
+    background-color: rgb(60, 60, 202)  ;
+}
+.ham_menu span:nth-child(1) {
+    top: 25%;
+}
+.ham_menu span:nth-child(3) {
+    top: 75%;
+}
+.ham_menu.active span:nth-child(1) {
+    top: 40%;
+    transform: translate(-50%, 50%) rotate(45deg);
+}
+.ham_menu.active span:nth-child(2) {
+    opacity: 0;
+}
+.ham_menu.active span:nth-child(3) {
+    top: 40%;
+    transform: translate(-50%, 50%) rotate(-45deg);
+}
+/*#endregion*/
 /*#region section */
+section {
+    width: 80%;
+    margin: auto;
+}
 /*#endregion */
 /*#region konicky*/
 #konicky article > img {
@@ -44,17 +123,17 @@ section {
 #konicky {
     display: flex;
     flex-wrap: wrap;
-    justify-content: center; /* Vycentruje svisle */
+    justify-content: center;
     align-items: center;
 }
 #konicky > article {
-    width: 60%;
-    height: 200px;
+    width: 90%;
+    height: 10rem;
     overflow: hidden;
     position: relative;
     display: flex;
     flex-direction: column;
-    justify-content: center; /* Vycentruje svisle */
+    justify-content: center;
     align-items: center;
     margin: 1rem;
 }
@@ -88,24 +167,4 @@ h2 {
 }
 h3 {
     padding: 5px 0;
-}
-nav {
-    columns: 5;
-    margin-left: auto;
-}
-nav a {
-    border-radius: 20px;
-}
-li {
-    list-style: none;
-}
-a {
-    color: black;
-    text-decoration: none;
-}
-img {
-    width: 30%;
-}
-footer {
-    background-color: blue;
 }
