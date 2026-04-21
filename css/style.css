@@ -14,12 +14,21 @@
 body {
     background-color: white;
 }
-header {
-    background-color: blue;
-    display: flex;
+h2 {
+    width: 100%;
+    text-align: center;
+    margin: 1rem;
 }
+
 section {
     width: 100%;
+}
+#head {
+    columns: 2;
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    background-color: gray;
 }
 /*#region section */
 /*#endregion */
@@ -35,13 +44,11 @@ section {
 #konicky {
     display: flex;
     flex-wrap: wrap;
-}
-#konicky > h2 {
-    flex: 0 0 100%;
-    text-align: center;
+    justify-content: center; /* Vycentruje svisle */
+    align-items: center;
 }
 #konicky > article {
-    width: 50%;
+    width: 60%;
     height: 200px;
     overflow: hidden;
     position: relative;
@@ -49,10 +56,7 @@ section {
     flex-direction: column;
     justify-content: center; /* Vycentruje svisle */
     align-items: center;
-    transform-origin: left;
-}
-#konicky > article:nth-child(odd) {
-    transform-origin: right;
+    margin: 1rem;
 }
 #konicky h3 {
     position: absolute;
@@ -69,7 +73,7 @@ section {
     animation: objeveni 1s forwards;
 }
 #konicky article:hover {
-    transform: scale(1.5);
+    transform: scale(1.3);
     z-index: 2;
 }
 #konicky article p {
@@ -87,10 +91,9 @@ h3 {
 }
 nav {
     columns: 5;
-    padding-bottom: 20px;
+    margin-left: auto;
 }
 nav a {
-    padding: 10px;
     border-radius: 20px;
 }
 li {
