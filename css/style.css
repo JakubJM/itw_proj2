@@ -1,6 +1,15 @@
+@keyframes objeveni {
+    from {opacity: 0;}
+    to {opacity: 1; }
+}
+@keyframes zmizeni {
+    from {opacity: 1;}
+    to {opacity: 0;}
+}
 * {
-margin: 0;
-padding: 0;
+    margin: 0;
+    padding: 0;
+    transition: 1s;
 }
 body {
     background-color: white;
@@ -26,7 +35,6 @@ section {
 #konicky {
     display: flex;
     flex-wrap: wrap;
-    justify-content: center;
 }
 #konicky > h2 {
     flex: 0 0 100%;
@@ -41,9 +49,31 @@ section {
     flex-direction: column;
     justify-content: center; /* Vycentruje svisle */
     align-items: center;
+    transform-origin: left;
+}
+#konicky > article:nth-child(odd) {
+    transform-origin: right;
+}
+#konicky h3 {
+    position: absolute;
+}
+#konicky article:hover h3 {
+    animation: zmizeni 0.5s forwards;
+}
+#konicky article:hover p {
+    display: block;
+    animation: objeveni 1s forwards;
+}
+#konicky article:hover table {
+    display: block;
+    animation: objeveni 1s forwards;
+}
+#konicky article:hover {
+    transform: scale(1.5);
+    z-index: 2;
 }
 #konicky article p {
-    display: none;
+    display:none;
 }
 #konicky article table {
     display: none;
