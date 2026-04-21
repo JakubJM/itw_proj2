@@ -132,6 +132,7 @@ section {
     overflow: hidden;
     position: relative;
     display: flex;
+    gap: 1rem;
     flex-direction: column;
     justify-content: center;
     align-items: center;
@@ -167,4 +168,45 @@ h2 {
 }
 h3 {
     padding: 5px 0;
+}
+@media screen and (min-width:800px){
+    #konicky > article {
+        width: 40%;
+        margin: .5rem;
+    }
+    .head {
+        display: flex;
+        background-color: white;
+        padding: 5px;
+    }
+    .menu {
+        order: 2;
+        z-index: 100;
+        background-color: white;
+        height: initial;
+        width: initial;
+        max-width: initial;
+        position: relative;
+        top:initial;
+        columns: 5;
+        right: initial;
+        display: initial;
+        flex-direction: initial;
+        justify-content: initial;
+        align-items: initial;
+        text-align: initial;
+        font-size: 1rem;
+        transition: .3s ease;
+        margin: 0 0 0 auto;
+    }
+    .ham_menu {
+        display: none;
+    }
+    nav {
+        padding: 0;
+    }
+    .head h3 {
+        font-size: 1rem;
+        padding: 0;
+    }
 }
