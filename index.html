@@ -8,6 +8,12 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="css/style.css">
+  <script>
+  document.querySelectorAll('img').forEach(img => {
+    img.setAttribute('loading', 'lazy');
+  });
+</script>
+
   <title>Jakub Machac</title>
 </head>
 
@@ -31,19 +37,22 @@
         </div>
       </nav>
     </div>
+    <div class="page">
     <section id="zakladni_udaje">
       <article>
       </article>
     </section>
     <section id="vzdelani">
+      <h2>Vzdelani</h2>
     </section>
     <section id="projekty">
-      </section>
+    </section>
     <section id="konicky">
       <h2>Konicky</h2>
       <article id="motorka">
         <h3>Motorka</h3>
         <img src="img/motorka.jpg" title="motorka">
+        <div class="textfoto">
         <p>Měl jsem Beneli BN125, teď jezdím na Yamaha MT07.</p>
           <table>
           <tr>
@@ -59,11 +68,12 @@
             <td>655cm</td>
           </tr>
           </table>
+        </div>
       </article>
       <article id="airsoft">
         <h3>Airsoft</h3>
         <img src="img/airsoft.jpg" title="foto sniper">
-        <p>Airsoft už hraji od 13let. Hraji převážně na pozici sniper s mb03, kterou jsem is sám vytunil. Jinak hraji se samopalem UTR45.</p>
+        <p class="textfoto">Airsoft už hraji od 13let. Hraji převážně na pozici sniper s mb03, kterou jsem is sám vytunil. Jinak hraji se samopalem UTR45.</p>
       </article>
       <article id="pomuni">
         <h3>Pomuni</h3>
@@ -72,12 +82,12 @@
       <article id="fotbal">
         <h3>Fotbal</h3>
         <img>
-        <p>Domlouvam a zaroven hraji fotbal ve vlastni skupine 20 lidi. Jsem branlar.</p>
+        <p class="textfoto">Domlouvam a zaroven hraji fotbal ve vlastni skupine 20 lidi. Jsem branlar.</p>
       </article>
       <article id="rybareni">
         <h3>Rybareni</h3>
         <img src="img/ryba.jpg">
-        <p>Teď už ne tak aktivně, ale když je čas tak si sednu k vodě.</p>
+        <p class="textfoto">Teď už ne tak aktivně, ale když je čas tak si sednu k vodě.</p>
       </article>
     </section>
     <section id="kontakt">
