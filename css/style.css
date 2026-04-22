@@ -123,19 +123,19 @@ section {
 /*#endregion */
 /*#region konicky*/
 #motorka {
-    background-image: url(/img/motorka.jpg);
+    background-image: url('../img/motorka.jpg');
 }
 #airsoft {
-    background-image: url(/img/airsoft.jpg);
+    background-image: url('../img/airsoft.jpg');
 }
 #pomuni {
-    background-image: url(/img/pomuni.png);
+    background-image: url('../img/pomuni.png');
 }
 #fotbal {
-    background-image: url(/img/favicon.jpg);
+    background-image: url('../img/favicon.jpg');
 }
 #rybareni {
-    background-image: url(/img/ryba.jpg);
+    background-image: url('../img/ryba.jpg');
 }
 #konicky{
     display: flex;
