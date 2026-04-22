@@ -122,13 +122,20 @@ section {
 }
 /*#endregion */
 /*#region konicky*/
-#konicky article > img {
-    object-fit: cover;
-    border-radius: .1rem;
-    object-position: center;
-    position: absolute;
-    width: 100%;
-    height: 100%;
+#motorka {
+    background-image: url(/img/motorka.jpg);
+}
+#airsoft {
+    background-image: url(/img/airsoft.jpg);
+}
+#pomuni {
+    background-image: url(/img/pomuni.png);
+}
+#fotbal {
+    background-image: url(/img/favicon.jpg);
+}
+#rybareni {
+    background-image: url(/img/ryba.jpg);
 }
 #konicky{
     display: flex;
@@ -145,6 +152,8 @@ section {
     flex-direction: column;
     justify-content: center;
     align-items: center;
+    background-position: center;
+    background-size: cover;
     margin: 1rem;
 }
 #konicky h3 {
