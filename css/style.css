@@ -47,6 +47,10 @@ img {
 }
 /*#endregion*/
 /*#region projekty*/
+#projekty {
+    display: grid;
+    grid-template-columns: 1fr;
+}
 /*#endregion*/
 /*#region hamburger+head */
 .head {
@@ -265,6 +269,14 @@ table{
     }
     #projekty .first:last-of-type {
         grid-template-columns: 20% auto;
+    }
+}
+@media screen and (min-width:1200px){
+    #projekty {
+        grid-template-columns: 1fr 1fr;
+    }
+    #projekty h2 {
+        grid-column: span 2;
     }
 }
 /*#endregion*/
