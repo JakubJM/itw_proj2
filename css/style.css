@@ -36,13 +36,17 @@ img {
     object-fit: cover;
 }
 /*#region o me*/
+
 .first {
-    columns: 1;
     padding: 0 2rem 2rem 2rem;
+    display: grid;
 }
 .first img {
-    max-width: 90%;
+    max-width: 100%;
+    width: 100%;
 }
+/*#endregion*/
+/*#region projekty*/
 /*#endregion*/
 /*#region hamburger+head */
 .head {
@@ -247,10 +251,20 @@ table{
         padding: 0;
     }
     .first {
-        columns: 2;
+        grid-template-columns: 1fr 1fr;
     }
-    .first img {
-        max-width: 100%;
+    .first:nth-of-type(even) img, 
+    .first:nth-of-type(even) a {
+        grid-column: 2;
+        grid-row: 1;
+    }
+
+    .first:nth-of-type(even) p {
+        grid-column: 1;
+        grid-row: 1;
+    }
+    #projekty .first:last-of-type {
+        grid-template-columns: 20% auto;
     }
 }
 /*#endregion*/
