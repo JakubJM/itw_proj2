@@ -309,12 +309,13 @@ footer {
     grid-template-columns: 1fr 1fr;
     margin: auto;
     align-items: center;
-    width: 70%;
+    width: 90%;
     padding: 10px;
 }
 footer img {
     border-radius: 50%;
-    width: 30%;
+    width: 80%;
+    margin: auto;
 }
 footer li {
     padding: 5px;
@@ -381,6 +382,10 @@ footer a {
     #project .first:last-of-type {
         grid-template-columns: 20% auto;
     }
+    footer img {
+        border-radius: 50%;
+        width: 50%;
+    }
 }
 @media screen and (min-width:1200px){
     #project {
@@ -398,6 +403,10 @@ footer a {
     .first:nth-of-type(even) p {
         grid-column: 2;
         grid-row: 1;
+    }
+    footer img {
+        border-radius: 50%;
+        width: 40%;
     }
 }
 /*#endregion*/
