@@ -14,6 +14,7 @@
     padding: 0;
     transition: 1s;
     font-family: 'Roboto', sans-serif;
+    box-sizing: border-box;
 }
 h2 {
     width: 100%;
@@ -34,9 +35,15 @@ ul li {
 }
 img {
     object-fit: cover;
+    border-radius: 1rem;
+}
+p{
+    padding: 0 1rem;
+}
+h2 {
+    padding: 1rem 0;
 }
 /*#region o me*/
-
 .first {
     padding: 0 2rem 2rem 2rem;
     display: grid;
@@ -46,8 +53,91 @@ img {
     width: 100%;
 }
 /*#endregion*/
+/*#region vzdelani*/
+.timeline {
+  position: relative;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.timeline::after {
+  content: '';
+  position: absolute;
+  width: 6px;
+  background-color: black;
+  top: 0;
+  bottom: 0;
+  left: 50%;
+  margin-left: -3px;
+}
+
+.container {
+  padding: 10px 40px;
+  position: relative;
+  background-color: inherit;
+  width: 50%;
+}
+
+.container::after {
+  content: '';
+  position: absolute;
+  width: 25px;
+  height: 25px;
+  right: -17px;
+  background-color: white;
+  border: 4px solid #FF9F55;
+  top: 15px;
+  border-radius: 50%;
+  z-index: 1;
+}
+
+.left {
+  left: 0;
+}
+
+.right {
+  left: 50%;
+}
+
+.left::before {
+  content: " ";
+  height: 0;
+  position: absolute;
+  top: 22px;
+  width: 0;
+  z-index: 1;
+  right: 30px;
+  border: medium solid black;
+  border-width: 10px 0 10px 10px;
+  border-color: transparent transparent transparent black;
+}
+
+.right::before {
+  content: " ";
+  height: 0;
+  position: absolute;
+  top: 22px;
+  width: 0;
+  z-index: 1;
+  left: 30px;
+  border: medium solid black;
+  border-width: 10px 10px 10px 0;
+  border-color: transparent black transparent transparent;
+}
+
+.right::after {
+  left: -16px;
+}
+
+.content {
+  padding: 20px 30px;
+  border: 2px solid black;
+  position: relative;
+  border-radius: 6px;
+}
+/*#endregion*/
 /*#region projekty*/
-#projekty {
+#project {
     display: grid;
     grid-template-columns: 1fr;
 }
@@ -142,7 +232,8 @@ section {
 }
 /*#endregion */
 /*#region konicky*/
-.motorka {
+
+.bike {
     background-image: url('../img/motorka.jpg');
 }
 .airsoft {
@@ -154,16 +245,16 @@ section {
 .fotbal {
     background-image: url('../img/favicon.jpeg');
 }
-.rybareni {
+.fish {
     background-image: url('../img/ryba.jpg');
 }
-#konicky{
+#hobby{
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
     align-items: center;
 }
-#konicky > article {
+#hobby > article {
     width: 90%;
     height: 30vh;
     overflow: hidden;
@@ -176,28 +267,28 @@ section {
     background-size: cover;
     margin: 1rem;
 }
-#konicky h3 {
+#hobby h3 {
     position: absolute;
     text-shadow: -1px -1px 0 white, 1px -1px 0 white, -1px 1px 0 white, 1px 1px 0 white;
 }
-#konicky article:hover h3 {
+#hobby article:hover h3 {
     animation: zmizeni 1s forwards;
 }
 
-#konicky article:hover .textfoto {
+#hobby article:hover .textfoto {
     display: block;
     animation: objeveni 1s forwards;
 }
-#konicky article:hover {
+#hobby article:hover {
     transform: scale(1.1);
 }
-#konicky article:hover .textfoto {
+#hobby article:hover .textfoto {
     background-color: hsl(0, 0%, 100%, .5);
 }
-#konicky article p {
+#hobby article p {
     padding: 5px;
 }
-#konicky article .textfoto {
+#hobby article .textfoto {
     display: none;
     border-radius: .1rem;
     padding: 5px;
@@ -212,9 +303,29 @@ table{
 }
 
 /*#endregion konicky*/
+/*#region footer*/
+footer {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    margin: auto;
+    align-items: center;
+    width: 70%;
+    padding: 10px;
+}
+footer img {
+    border-radius: 50%;
+    width: 30%;
+}
+footer li {
+    padding: 5px;
+}
+footer a {
+    padding-left: 5px ;
+}
+/*#endregion*/
 /*#region @media */
 @media screen and (min-width:800px){
-    #konicky > article {
+    #hobby > article {
         width: 40%;
         margin: .5rem;
         height: 200px;
@@ -267,16 +378,26 @@ table{
         grid-column: 1;
         grid-row: 1;
     }
-    #projekty .first:last-of-type {
+    #project .first:last-of-type {
         grid-template-columns: 20% auto;
     }
 }
 @media screen and (min-width:1200px){
-    #projekty {
+    #project {
         grid-template-columns: 1fr 1fr;
     }
-    #projekty h2 {
+    #project h2 {
         grid-column: span 2;
+    }
+        .first:nth-of-type(even) img, 
+    .first:nth-of-type(even) a {
+        grid-column: 1;
+        grid-row: 1;
+    }
+
+    .first:nth-of-type(even) p {
+        grid-column: 2;
+        grid-row: 1;
     }
 }
 /*#endregion*/
