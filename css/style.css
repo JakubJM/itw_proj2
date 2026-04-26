@@ -509,25 +509,3 @@ footer a {
 .thumb:hover {
   border-color: #007bff;
 }
-
-/*#region develop*/
-#hobby.hobbys>article:hover {
-  align-items: unset;
-}
-#hobby.hobbys article:hover {
-  width: 100%;
-  background-color: yellow;
-  height: 60vh;
-  background-image: none;
-}
-#hobby.hobbys article .foto {
-  display: none;
-  height: 100%;
-}
-#hobby.hobbys article:hover .foto {
-  display: initial;
-}
-#hobby.hobbys .text {
-  width: 50%;
-}
-/*#endregion*/
