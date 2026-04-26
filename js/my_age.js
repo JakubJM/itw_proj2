@@ -4,7 +4,6 @@ function calc_age(date_of_birth) {
     
     let age = today.getFullYear() - birth.getFullYear();
     const month = today.getMonth() - birth.getMonth();
-
     //kontrola, jestli jsem uz mel tenhle rok narozeniny
     if (month < 0 || (month === 0 && today.getDate() < birth.getDate())) {
       age--;
@@ -16,4 +15,4 @@ function calc_age(date_of_birth) {
   const myBirthday = "2005-09-18"; 
 
   //vlozeni vypocitaneho veku do html
-  document.getElementById("my_age").innerText = calc_age(myBirthday);
+  document.getElementById("myAge").innerText = calc_age(myBirthday);

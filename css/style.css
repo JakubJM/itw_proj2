@@ -1,57 +1,76 @@
 @keyframes objeveni {
-    from {opacity: 0;}
-    to {
-        opacity: 1;    
-    }
+  from {
+    opacity: 0;
+  }
+
+  to {
+    opacity: 1;
+  }
 }
+
 @keyframes zmizeni {
-    from {opacity: 1;}
-    to {opacity: 0;}
+  from {
+    opacity: 1;
+  }
+
+  to {
+    opacity: 0;
+  }
 }
 
 * {
-    margin: 0;
-    padding: 0;
-    transition: 1s;
-    font-family: 'Roboto', sans-serif;
-    box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  transition: 1s;
+  font-family: "Roboto", sans-serif;
+  box-sizing: border-box;
 }
+
 h2 {
-    width: 100%;
-    text-align: center;
+  width: 100%;
+  text-align: center;
 }
+
 a {
-    text-decoration: none;
-    color: black;
+  text-decoration: none;
+  color: black;
 }
+
 a:hover {
-    color: black;
-    text-decoration: underline;
-    transition: 1s;
-    cursor: pointer;
+  color: black;
+  text-decoration: underline;
+  transition: 1s;
+  cursor: pointer;
 }
+
 ul li {
-    list-style: none;
+  list-style: none;
 }
+
 img {
-    object-fit: cover;
-    border-radius: 1rem;
+  object-fit: cover;
+  border-radius: 1rem;
 }
-p{
-    padding: 0 1rem;
+
+p {
+  padding: 0 1rem;
 }
+
 h2 {
-    padding: 1rem 0;
+  padding: 1rem 0;
 }
+
 /*#region o me*/
 .first {
-    padding: 0 2rem 2rem 2rem;
-    display: grid;
+  padding: 0 2rem 2rem 2rem;
+  display: grid;
 }
+
 .first img {
-    max-width: 100%;
-    width: 100%;
+  max-width: 100%;
+  width: 100%;
 }
+
 /*#endregion*/
 /*#region vzdelani*/
 .timeline {
@@ -61,7 +80,7 @@ h2 {
 }
 
 .timeline::after {
-  content: '';
+  content: "";
   position: absolute;
   width: 6px;
   background-color: black;
@@ -79,13 +98,13 @@ h2 {
 }
 
 .container::after {
-  content: '';
+  content: "";
   position: absolute;
   width: 25px;
   height: 25px;
   right: -17px;
   background-color: white;
-  border: 4px solid #FF9F55;
+  border: 4px solid #ff9f55;
   top: 15px;
   border-radius: 50%;
   z-index: 1;
@@ -135,279 +154,332 @@ h2 {
   position: relative;
   border-radius: 6px;
 }
+
 /*#endregion*/
 /*#region projekty*/
 #project {
-    display: grid;
-    grid-template-columns: 1fr;
+  display: grid;
+  grid-template-columns: 1fr;
 }
+
 /*#endregion*/
 /*#region hamburger+head */
 .head {
-    z-index: 100;
-    top: 0;
-    position: sticky;
+  z-index: 100;
+  top: 0;
+  position: sticky;
 }
+
 .menu {
-    z-index: 100;
-    background-color: white;
-    height: 100vh;
-    width: 100%;
-    max-width: 450px;
-    position: fixed;
-    top:0;
-    right: -450px;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    text-align: center;
-    font-size: 2rem;
-    transition: .3s ease;
+  z-index: 100;
+  background-color: white;
+  height: 100vh;
+  width: 100%;
+  max-width: 450px;
+  position: fixed;
+  top: 0;
+  right: -450px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  font-size: 2rem;
+  transition: 0.3s ease;
 }
+
 .menu.active {
-    right: 0;
+  right: 0;
 }
+
 .page {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    background-color: rgb(224, 224, 224);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background-color: rgb(224, 224, 224);
 }
+
 nav {
-    color: black;
-    z-index: 100;
-    padding: 1rem;
-    display: flex;
-    top: 0;
-    position: sticky;
-    background-color: white;
+  color: black;
+  z-index: 100;
+  padding: 1rem;
+  display: flex;
+  top: 0;
+  position: sticky;
+  background-color: white;
 }
+
 .ham_menu {
-    z-index: 200;
-    height: 2rem;
-    width: 2rem;
-    margin-left: auto;
-    position: relative;
-    cursor: pointer;
+  z-index: 200;
+  height: 2rem;
+  width: 2rem;
+  margin-left: auto;
+  position: relative;
+  cursor: pointer;
 }
+
 .ham_menu span {
-    height: 0.2rem;
-    width: 100%;
-    background-color: black;
-    border-radius: 25px;
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    transition: .3s ease;
+  height: 0.2rem;
+  width: 100%;
+  background-color: black;
+  border-radius: 25px;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  transition: 0.3s ease;
 }
+
 .ham_menu:hover span {
-    background-color: rgb(60, 60, 202)  ;
+  background-color: rgb(60, 60, 202);
 }
+
 .ham_menu span:nth-child(1) {
-    top: 25%;
+  top: 25%;
 }
+
 .ham_menu span:nth-child(3) {
-    top: 75%;
+  top: 75%;
 }
+
 .ham_menu.active span:nth-child(1) {
-    top: 40%;
-    transform: translate(-50%, 50%) rotate(45deg);
+  top: 40%;
+  transform: translate(-50%, 50%) rotate(45deg);
 }
+
 .ham_menu.active span:nth-child(2) {
-    opacity: 0;
+  opacity: 0;
 }
+
 .ham_menu.active span:nth-child(3) {
-    top: 40%;
-    transform: translate(-50%, 50%) rotate(-45deg);
+  top: 40%;
+  transform: translate(-50%, 50%) rotate(-45deg);
 }
+
 /*#endregion*/
 /*#region section */
 section {
-    width: 90%;
-    background-color: white;
-    padding-top: 1.2rem;
-    
+  width: 90%;
+  background-color: white;
+  padding-top: 1.2rem;
 }
+
 /*#endregion */
 /*#region konicky*/
 
 .bike {
-    background-image: url('../img/motorka.jpg');
+  background-image: url("../img/motorka.jpg");
 }
+
 .airsoft {
-    background-image: url('../img/airsoft_01.jpg');
+  background-image: url("../img/airsoft_01.jpg");
 }
+
 .pomuni {
-    background-image: url('../img/pomuni_02.jpg');
+  background-image: url("../img/pomuni_02.jpg");
 }
+
 .fotbal {
-    background-image: url('../img/favicon.jpeg');
+  background-image: url("../img/favicon.jpeg");
 }
+
 .fish {
-    background-image: url('../img/ryba.jpg');
+  background-image: url("../img/ryba.jpg");
 }
-#hobby{
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    align-items: center;
+
+#hobby {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
 }
-#hobby > article {
-    width: 90%;
-    height: 30vh;
-    overflow: hidden;
-    position: relative;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    background-position: center;
-    background-size: cover;
-    margin: 1rem;
+
+#hobby>article {
+  width: 90%;
+  height: 30vh;
+  overflow: hidden;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background-position: center;
+  background-size: cover;
+  margin: 1rem;
 }
+
 #hobby h3 {
-    position: absolute;
-    text-shadow: -1px -1px 0 white, 1px -1px 0 white, -1px 1px 0 white, 1px 1px 0 white;
+  position: absolute;
+  text-shadow:
+    -1px -1px 0 white,
+    1px -1px 0 white,
+    -1px 1px 0 white,
+    1px 1px 0 white;
 }
+
 #hobby article:hover h3 {
-    animation: zmizeni 1s forwards;
+  animation: zmizeni 1s forwards;
 }
 
 #hobby article:hover .textfoto {
-    display: block;
-    animation: objeveni 1s forwards;
+  display: block;
+  animation: objeveni 1s forwards;
 }
+
 #hobby article:hover {
-    transform: scale(1.1);
+  transform: scale(1.1);
 }
+
 #hobby article:hover .textfoto {
-    background-color: hsl(0, 0%, 100%, .5);
+  background-color: hsl(0, 0%, 100%, 0.5);
 }
+
 #hobby article p {
-    padding: 5px;
+  padding: 5px;
 }
+
 #hobby article .textfoto {
-    display: none;
-    border-radius: .1rem;
-    padding: 5px;
-    margin: 5px;
+  display: none;
+  border-radius: 0.1rem;
+  padding: 5px;
+  margin: 5px;
 }
-td, th {
-    border: 1px solid black;
-    padding: 5px;
+
+td,
+th {
+  border: 1px solid black;
+  padding: 5px;
 }
-table{
-    border-collapse: collapse;
+
+table {
+  border-collapse: collapse;
 }
 
 /*#endregion konicky*/
 /*#region footer*/
 footer {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    margin: auto;
-    align-items: center;
-    width: 90%;
-    padding: 10px;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  margin: auto;
+  align-items: center;
+  width: 90%;
+  padding: 10px;
 }
+
 footer img {
-    border-radius: 50%;
-    width: 80%;
-    margin: auto;
+  border-radius: 50%;
+  width: 80%;
+  margin: auto;
 }
+
 footer li {
-    padding: 5px;
+  padding: 5px;
 }
+
 footer a {
-    padding-left: 5px ;
+  padding-left: 5px;
 }
+
 /*#endregion*/
 /*#region @media */
-@media screen and (min-width:800px){
-    #hobby > article {
-        width: 40%;
-        margin: .5rem;
-        height: 200px;
-    }
-    .head {
-        display: flex;
-        background-color: white;
-        padding: 5px;
-    }
-    .menu {
-        order: 2;
-        height: initial;
-        width: initial;
-        max-width: initial;
-        position: relative;
-        top:initial;
-        columns: 5;
-        right: initial;
-        display: initial;
-        flex-direction: initial;
-        justify-content: initial;
-        align-items: initial;
-        text-align: initial;
-        font-size: 1.5rem;
-        margin: 0 0 0 auto;
-    }
-    .menu li {
-        text-align: right;
-    }
-    .ham_menu {
-        display: none;
-    }
-    nav {
-        padding: 0;
-    }
-    .head h3 {
-        font-size: 1.5rem;
-        padding: 0;
-    }
-    .first {
-        grid-template-columns: 1fr 1fr;
-    }
-    .first:nth-of-type(even) img, 
-    .first:nth-of-type(even) a {
-        grid-column: 2;
-        grid-row: 1;
-    }
+@media screen and (min-width: 800px) {
+  #hobby>article {
+    width: 40%;
+    margin: 0.5rem;
+    height: 200px;
+  }
 
-    .first:nth-of-type(even) p {
-        grid-column: 1;
-        grid-row: 1;
-    }
-    #project .first:last-of-type {
-        grid-template-columns: 20% auto;
-    }
-    footer img {
-        border-radius: 50%;
-        width: 50%;
-    }
-}
-@media screen and (min-width:1200px){
-    #project {
-        grid-template-columns: 1fr 1fr;
-    }
-    #project h2 {
-        grid-column: span 2;
-    }
-        .first:nth-of-type(even) img, 
-    .first:nth-of-type(even) a {
-        grid-column: 1;
-        grid-row: 1;
-    }
+  .head {
+    display: flex;
+    background-color: white;
+    padding: 5px;
+  }
 
-    .first:nth-of-type(even) p {
-        grid-column: 2;
-        grid-row: 1;
-    }
-    footer img {
-        border-radius: 50%;
-        width: 40%;
-    }
+  .menu {
+    order: 2;
+    height: initial;
+    width: initial;
+    max-width: initial;
+    position: relative;
+    top: initial;
+    columns: 5;
+    right: initial;
+    display: initial;
+    flex-direction: initial;
+    justify-content: initial;
+    align-items: initial;
+    text-align: initial;
+    font-size: 1.5rem;
+    margin: 0 0 0 auto;
+  }
+
+  .menu li {
+    text-align: right;
+  }
+
+  .ham_menu {
+    display: none;
+  }
+
+  nav {
+    padding: 0;
+  }
+
+  .head h3 {
+    font-size: 1.5rem;
+    padding: 0;
+  }
+
+  .first {
+    grid-template-columns: 1fr 1fr;
+  }
+
+  .first:nth-of-type(even) img,
+  .first:nth-of-type(even) a {
+    grid-column: 2;
+    grid-row: 1;
+  }
+
+  .first:nth-of-type(even) p {
+    grid-column: 1;
+    grid-row: 1;
+  }
+
+  #project .first:last-of-type {
+    grid-template-columns: 20% auto;
+  }
+
+  footer img {
+    border-radius: 50%;
+    width: 50%;
+  }
 }
+
+@media screen and (min-width: 1200px) {
+  #project {
+    grid-template-columns: 1fr 1fr;
+  }
+
+  #project h2 {
+    grid-column: span 2;
+  }
+
+  .first:nth-of-type(even) img,
+  .first:nth-of-type(even) a {
+    grid-column: 1;
+    grid-row: 1;
+  }
+
+  .first:nth-of-type(even) p {
+    grid-column: 2;
+    grid-row: 1;
+  }
+
+  footer img {
+    border-radius: 50%;
+    width: 40%;
+  }
+}
+
 /*#endregion*/
