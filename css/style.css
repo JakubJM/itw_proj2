@@ -483,8 +483,51 @@ footer a {
 }
 
 /*#endregion*/
-#image_gallery {display: none;}
-#current_image { max-width: 100%; height: auto; display: block; margin: 0 auto; }
-        #image_thumbs { display: flex; justify-content: center; gap: 10px; margin-top: 10px; }
-        .thumb { width: 80px; height: 80px; object-fit: cover; cursor: pointer; border: 2px solid transparent; }
-        .thumb:hover { border-color: #007bff; }
+#image_gallery {
+  width: 80%;
+  margin: auto;
+}
+#current_image {
+  max-width: 100%;
+  height: auto;
+  display: block;
+  margin: 0 auto;
+}
+#image_thumbs {
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+  margin-top: 10px;
+}
+.thumb {
+  width: 80px;
+  height: 80px;
+  object-fit: cover;
+  cursor: pointer;
+  border: 2px solid transparent;
+}
+.thumb:hover {
+  border-color: #007bff;
+}
+
+/*#region develop*/
+#hobby.hobbys>article:hover {
+  align-items: unset;
+}
+#hobby.hobbys article:hover {
+  width: 100%;
+  background-color: yellow;
+  height: 60vh;
+  background-image: none;
+}
+#hobby.hobbys article .foto {
+  display: none;
+  height: 100%;
+}
+#hobby.hobbys article:hover .foto {
+  display: initial;
+}
+#hobby.hobbys .text {
+  width: 50%;
+}
+/*#endregion*/
