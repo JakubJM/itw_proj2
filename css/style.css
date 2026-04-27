@@ -15,13 +15,13 @@
 
   to {
     opacity: 0;
+    z-index: -1;
   }
 }
 
 * {
   margin: 0;
   padding: 0;
-  transition: 1s;
   font-family: "Roboto", sans-serif;
   box-sizing: border-box;
 }
@@ -277,6 +277,7 @@ section {
   margin: auto;
   overflow: hidden;
   border-radius: 1rem;
+  transition: 1s;
 }
 #hobby button {
   position: absolute;
@@ -307,6 +308,7 @@ section {
 }
 #hobby .current_image {
   width: 100%;
+  display: block;
 }
 .next {
   right: 0;
