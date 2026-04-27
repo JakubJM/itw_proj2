@@ -24,25 +24,57 @@
 .thumb:hover {
   border-color: #007bff;
 }
-
-/*#region develop*/
-#hobby.hobbys>article:hover {
-  align-items: unset;
+* {
+  transition: 1s;
+  margin: 0;
+  padding: 0;
 }
-#hobby.hobbys article:hover {
+article {
+  margin: auto;
+  width: 80%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+}
+article img {
   width: 100%;
-  background-color: yellow;
-  height: 60vh;
-  background-image: none;
+  object-fit: cover;
 }
-#hobby.hobbys article .foto {
+h3 {
+  font-size: 3rem;
+  position: absolute;
+}
+p {
   display: none;
-  height: 100%;
 }
-#hobby.hobbys article:hover .foto {
-  display: initial;
+
+article:hover h3 {
+  display: none;
 }
-#hobby.hobbys .text {
+article:hover p {
+  display: block;
+}
+article:hover #image_gallery {
   width: 50%;
+  position: relative;
 }
-/*#endregion*/
+article:hover {
+  flex-direction: row;
+}
+#previous {
+  display: none;
+}
+#next {
+  right: 0;
+  display: none;
+}
+button {
+  position: absolute;
+  top: 50%;
+}
+article:hover #next, 
+article:hover #previous{
+  display: block;
+}

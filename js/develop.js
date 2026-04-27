@@ -1,18 +1,19 @@
 const currentImage = document.getElementById("current_image");
-    const imageThumbs = document.getElementById("image_thumbs");
+    const previous = document.getElementById("previous");
+    const next = document.getElementById("next");
+    let i = 1;
 
-    //smycka pro generovani nahledu
-    for (let i = 1; i <= 2; i++) {
-        const thumb = document.createElement("img");
-        thumb.src = `img/airsoft_0${i}.jpg`;
-        thumb.alt = `image ${i}`;
-        thumb.classList.add("thumb");
-        
         //udalost kliknuti pro zmenu hlavniho obrazku
-        thumb.addEventListener("click", function() {
-            currentImage.src = this.src;
-            currentImage.alt = this.alt;
+        previous.addEventListener("click", function() {
+            if (i > 1) {
+                i--;
+                currentImage.src=`img/airsoft_0${i}.jpg`;
+            }
         });
-        
-        imageThumbs.appendChild(thumb);
-    }
+
+        next.addEventListener("click", function() {
+            if (i < 2) {
+                i++;
+                currentImage.src=`img/airsoft_0${i}.jpg`;
+            }
+        });

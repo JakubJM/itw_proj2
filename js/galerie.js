@@ -16,3 +16,7 @@ const currentImage = document.getElementById("current_image");
         
         imageThumbs.appendChild(thumb);
     }
+    <div id="image_gallery">
+        <img id="current_image" src="img/airsoft_01.jpg" alt="image 1">
+        <div id="image_thumbs"></div>
+      </div>
