@@ -49,7 +49,6 @@ ul li {
 
 img {
   object-fit: cover;
-  border-radius: 1rem;
 }
 
 p {
@@ -267,95 +266,70 @@ section {
 
 /*#endregion */
 /*#region konicky*/
-
-.bike {
-  background-image: url("../img/motorka.jpg");
-}
-
-.airsoft {
-  background-image: url("../img/airsoft_01.jpg");
-}
-
-.pomuni {
-  background-image: url("../img/pomuni_02.jpg");
-}
-
-.fotbal {
-  background-image: url("../img/favicon.jpeg");
-}
-
-.fish {
-  background-image: url("../img/ryba.jpg");
-}
-
-#hobby {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-  align-items: center;
-}
-
-#hobby>article {
-  width: 90%;
-  height: 30vh;
-  overflow: hidden;
+#hobby article {
+  background-color: inherit;
+  width: 80%;
   position: relative;
   display: flex;
   flex-direction: column;
-  justify-content: center;
   align-items: center;
-  background-position: center;
-  background-size: cover;
-  margin: 1rem;
+  justify-content: center;
+  margin: auto;
+  overflow: hidden;
+  border-radius: 1rem;
 }
-
+#hobby button {
+  position: absolute;
+  display: none;
+  width: 2rem;
+  font-size: 1rem;
+  border: none;
+  height: 100%;
+  background-color: hsl(0, 0%, 50%, 50%);
+}
+#hobby .textfoto {
+  display: none;
+  animation: zmizeni 1s forwards;
+}
 #hobby h3 {
   position: absolute;
+  animation: objeveni 1s forwards;
   text-shadow:
     -1px -1px 0 white,
     1px -1px 0 white,
     -1px 1px 0 white,
     1px 1px 0 white;
+  z-index: 2;
 }
-
-#hobby article:hover h3 {
-  animation: zmizeni 1s forwards;
+#hobby .image_gallery {
+  width: 100%;
+  position: relative;
 }
-
+#hobby .current_image {
+  width: 100%;
+}
+.next {
+  right: 0;
+}
+#hobby article:hover button {
+  cursor: pointer;
+}
+#hobby article:hover button,
 #hobby article:hover .textfoto {
   display: block;
   animation: objeveni 1s forwards;
 }
-
-#hobby article:hover {
-  transform: scale(1.1);
-}
-
 #hobby article:hover .textfoto {
-  background-color: hsl(0, 0%, 100%, 0.5);
+  width: 100%;
+  text-align: center;
 }
-
-#hobby article p {
-  padding: 5px;
+#hobby article:hover h3 {
+  animation: zmizeni 1s forwards;
 }
-
-#hobby article .textfoto {
-  display: none;
-  border-radius: 0.1rem;
-  padding: 5px;
-  margin: 5px;
+#hobby article:hover {
+  width: 100%;
+  border: 2px solid black;
 }
-
-td,
-th {
-  border: 1px solid black;
-  padding: 5px;
-}
-
-table {
-  border-collapse: collapse;
-}
-
 /*#endregion konicky*/
 /*#region footer*/
 footer {
@@ -384,18 +358,11 @@ footer a {
 /*#endregion*/
 /*#region @media */
 @media screen and (min-width: 800px) {
-  #hobby>article {
-    width: 40%;
-    margin: 0.5rem;
-    height: 200px;
-  }
-
   .head {
     display: flex;
     background-color: white;
     padding: 5px;
   }
-
   .menu {
     order: 2;
     height: initial;
@@ -413,46 +380,62 @@ footer a {
     font-size: 1.5rem;
     margin: 0 0 0 auto;
   }
-
+  
   .menu li {
     text-align: right;
   }
-
+  
   .ham_menu {
     display: none;
   }
-
+  
   nav {
     padding: 0;
   }
-
+  
   .head h3 {
     font-size: 1.5rem;
     padding: 0;
   }
-
+  
   .first {
     grid-template-columns: 1fr 1fr;
   }
-
+  
   .first:nth-of-type(even) img,
   .first:nth-of-type(even) a {
     grid-column: 2;
     grid-row: 1;
   }
-
+  
   .first:nth-of-type(even) p {
     grid-column: 1;
     grid-row: 1;
   }
-
+  
   #project .first:last-of-type {
     grid-template-columns: 20% auto;
   }
-
+  
   footer img {
     border-radius: 50%;
     width: 50%;
+  }
+  #hobby {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+  }
+  #hobby h2 {
+    grid-column: span 2;
+  }
+  #hobby article:hover {
+    transform: scale(2);
+    transform-origin: top left;
+    z-index: 3;
+    flex-direction: row;
+  }
+  #hobby article:hover:nth-of-type(even) {
+    transform-origin: top right;
   }
 }
 
@@ -483,29 +466,3 @@ footer a {
 }
 
 /*#endregion*/
-#image_gallery {
-  width: 80%;
-  margin: auto;
-}
-#current_image {
-  max-width: 100%;
-  height: auto;
-  display: block;
-  margin: 0 auto;
-}
-#image_thumbs {
-  display: flex;
-  justify-content: center;
-  gap: 10px;
-  margin-top: 10px;
-}
-.thumb {
-  width: 80px;
-  height: 80px;
-  object-fit: cover;
-  cursor: pointer;
-  border: 2px solid transparent;
-}
-.thumb:hover {
-  border-color: #007bff;
-}
