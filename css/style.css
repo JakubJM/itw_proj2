@@ -494,6 +494,15 @@ footer a {
   .hobby_container {
     grid-template-columns: 1fr 1fr 1fr;
   }
+  #hobby article:nth-of-type(3n) {
+    transform-origin: top right;
+  }
+  #hobby article:nth-of-type(3n-1) {
+    transform-origin: top center;
+  }
+  #hobby article:nth-of-type(3n-2) {
+    transform-origin: top left;
+  }
   #hobby h2 {
     grid-column: span 3;
   }
