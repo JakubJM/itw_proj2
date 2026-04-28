@@ -293,6 +293,10 @@ section {
   background-color: inherit;
   margin: auto;
 }
+#hobby {
+  position: relative;
+  z-index: 10;
+}
 #hobby article {
   z-index: 1;
   background-color: inherit;
@@ -373,9 +377,8 @@ section {
   transition: transform 1s, width 1s, border 1s, z-index 0s 0s;
   z-index: 3;
   width: 100%;
-  height: fit-content;
+  height: 30vh;
   transform: scale(1.2);
-  max-height: fit-content;
   border: 2px solid black;
 }
 /*#endregion konicky*/
@@ -395,7 +398,6 @@ footer img {
   width: 80%;
   margin: auto;
 }
-
 footer li {
   padding: 5px;
 }
@@ -484,11 +486,15 @@ footer a {
   }
   #hobby article.active {
     transform: scale(2);
+    height: 20vh;
     z-index: 3;
     flex-direction: row;
   }
   #hobby article:nth-of-type(even) {
     transform-origin: top right;
+  }
+  #hobby article.active .textfoto {
+    text-align: left;
   }
 }
 
@@ -538,9 +544,9 @@ footer a {
 /* Základní stav (skryto) */
 .main > *, 
 section > *, 
-footer > * {
+footer > * ,
+.hobby_container > article{
     opacity: 0;
-    transform: translateY(30px); /* Prvek je kousek níž */
     transition: opacity 0.5s ease, transform 0.5s ease;
     will-change: opacity, transform;
 }
@@ -548,6 +554,5 @@ footer > * {
 /* Stav při zobrazení */
 .is-visible {
     opacity: 1 !important;
-    transform: translateY(0) !important;
 }
 
