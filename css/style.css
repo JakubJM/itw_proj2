@@ -21,7 +21,7 @@
 
 * {
   margin: 0;
-  padding: 0;
+  padding: 0;;
   font-family: "Roboto", sans-serif;
   box-sizing: border-box;
 }
@@ -57,6 +57,14 @@ p {
 
 h2 {
   padding: 1rem 0;
+}
+h1 {
+    text-shadow:
+    -1px -1px 0 white,
+    1px -1px 0 white,
+    -1px 1px 0 white,
+    1px 1px 0 white;
+    font-size: 5rem;
 }
 
 /*#region o me*/
@@ -164,6 +172,7 @@ h2 {
 /*#endregion*/
 /*#region hamburger+head */
 .head {
+  background-color: white;
   z-index: 100;
   top: 0;
   position: sticky;
@@ -191,12 +200,24 @@ h2 {
   right: 0;
 }
 
+.main {
+  display: flex;
+  height: 100vh;
+  width: 100%;
+  text-align: center;
+  align-items: center;
+  justify-content: center;
+}
+
 .page {
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  background-color: rgb(224, 224, 224);
+  background-image: url("../img/backgound.jpg");
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-size: cover;
 }
 
 nav {
@@ -301,7 +322,7 @@ section {
 #hobby .textfoto {
   display: block;
   height: 0;
-  font-size: .5rem;
+  font-size: 1rem;
   opacity: 0;
   visibility: hidden;
   transition: opacity 1s, visibility 1s;
@@ -351,7 +372,7 @@ section {
   transition: transform 1s, width 1s, border 1s, z-index 0s 0s;
   z-index: 3;
   width: 100%;
-  height: fit-content;
+  max-height: fit-content;
   border: 2px solid black;
 }
 /*#endregion konicky*/
@@ -359,6 +380,7 @@ section {
 footer {
   display: grid;
   grid-template-columns: 1fr 1fr;
+  background-color: gray;
   margin: auto;
   align-items: center;
   width: 90%;

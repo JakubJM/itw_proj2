@@ -13,10 +13,12 @@ galerie.forEach(g => {
     previous.addEventListener("click", function() {
         i = (i > 1) ? i - 1 : maxImages;
         currentImage.src = `img/${prefix}_0${i}.jpg`;
+        currentImage.alt = `${prefix} ${i}`;
     });
-
+    
     next.addEventListener("click", function() {
         i = (i < maxImages) ? i + 1 : 1;
         currentImage.src = `img/${prefix}_0${i}.jpg`;
+        currentImage.alt = `${prefix} ${i}`;
     });
 });

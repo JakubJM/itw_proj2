@@ -3,5 +3,6 @@ jQuery('article').click(function(e) {
     return;
   }
   
+  jQuery('article').not(this).removeClass('active')
   jQuery(this).toggleClass('active');
 });
