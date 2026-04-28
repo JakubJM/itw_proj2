@@ -267,6 +267,7 @@ section {
 /*#endregion */
 /*#region konicky*/
 #hobby article {
+  z-index: 1;
   background-color: inherit;
   width: 80%;
   position: relative;
@@ -277,11 +278,15 @@ section {
   margin: auto;
   overflow: hidden;
   border-radius: 1rem;
-  transition: 1s;
+  transition: transform 1s, width 1s, border 1s, z-index 0s 1s;
+  cursor: pointer;
 }
 #hobby button {
   position: absolute;
-  display: none;
+  display: block;
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 1s, visibility 1s;
   width: 2rem;
   font-size: 1rem;
   border: none;
@@ -289,7 +294,11 @@ section {
   background-color: hsl(0, 0%, 50%, 50%);
 }
 #hobby .textfoto {
-  display: none;
+  display: block;
+  height: 0;
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 1s, visibility 1s;
   animation: zmizeni 1s forwards;
 }
 #hobby h3 {
@@ -313,22 +322,26 @@ section {
 .next {
   right: 0;
 }
-#hobby article:hover button {
+#hobby article.active button {
   cursor: pointer;
 }
-#hobby article:hover button,
-#hobby article:hover .textfoto {
-  display: block;
+#hobby article.active button,
+#hobby article.active .textfoto {
+  opacity: 1;
+  visibility: visible;
   animation: objeveni 1s forwards;
 }
-#hobby article:hover .textfoto {
+#hobby article.active .textfoto {
   width: 100%;
+  height: 100%;
   text-align: center;
 }
-#hobby article:hover h3 {
+#hobby article.active h3 {
   animation: zmizeni 1s forwards;
 }
-#hobby article:hover {
+#hobby article.active {
+  transition: transform 1s, width 1s, border 1s, z-index 0s 0s;
+  z-index: 3;
   width: 100%;
   border: 2px solid black;
 }
@@ -430,13 +443,15 @@ footer a {
   #hobby h2 {
     grid-column: span 2;
   }
-  #hobby article:hover {
-    transform: scale(2);
+  #hobby article {
     transform-origin: top left;
+  }
+  #hobby article.active {
+    transform: scale(2);
     z-index: 3;
     flex-direction: row;
   }
-  #hobby article:hover:nth-of-type(even) {
+  #hobby article:nth-of-type(even) {
     transform-origin: top right;
   }
 }

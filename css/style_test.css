@@ -87,6 +87,7 @@ section {
   background-position: center;
   background-size: cover;
   margin: 1rem;
+  transition: all 1s ease;
 }
 
 #hobby h3 {
@@ -98,23 +99,19 @@ section {
     1px 1px 0 white;
 }
 
-#hobby article:hover h3 {
+#hobby article.active h3 {
   animation: zmizeni 1s forwards;
 }
 
-#hobby article:hover .textfoto {
+#hobby article.active .textfoto {
   display: block;
   animation: objeveni 1s forwards;
 }
 
-#hobby article:hover {
+#hobby article.active {
   width: 100%;
   height: fit-content;
 }
-#hobby article:hover .textfoto {
-  background-color: hsl(0, 0%, 100%, 0.5);
-}
-
 #hobby article p {
   padding: 5px;
 }
@@ -185,17 +182,17 @@ p {
   display: none;
 }  
 
-article:hover h3 {
+article.active h3 {
   display: none;
 }  
-article:hover p {
+article.active p {
   display: block;
 }  
-article:hover .image_gallery {
+article.active .image_gallery {
   width: 80%;
   position: relative;
 }  
-article:hover {
+article.active {
   flex-direction: row;
 }  
 .previous {
@@ -209,7 +206,8 @@ button {
   position: absolute;
   top: 50%;
 }  
-article:hover .next, 
-article:hover .previous{
+article.active .next, 
+article.active .previous{
   display: block;
-}  
+}
+
