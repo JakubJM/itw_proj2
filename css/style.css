@@ -373,6 +373,8 @@ section {
   transition: transform 1s, width 1s, border 1s, z-index 0s 0s;
   z-index: 3;
   width: 100%;
+  height: fit-content;
+  transform: scale(1.2);
   max-height: fit-content;
   border: 2px solid black;
 }

@@ -13,7 +13,7 @@ document.addEventListener("DOMContentLoaded", () => {
             }
         });
     }, {
-        threshold: 0.4 // Prvek začne mizet/naskakovat, jakmile je vidět méně než 10 %
+        threshold: 0.1 // Prvek začne mizet/naskakovat, jakmile je vidět méně než 10 %
     });
 
     elementsToAnimate.forEach(el => observer.observe(el));
