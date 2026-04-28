@@ -266,16 +266,21 @@ section {
 
 /*#endregion */
 /*#region konicky*/
+.hobby_container {
+  width: 90%;
+  background-color: inherit;
+  margin: auto;
+}
 #hobby article {
   z-index: 1;
   background-color: inherit;
-  width: 80%;
+  width: 100%;
+  height: 30vh;
   position: relative;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  margin: auto;
   overflow: hidden;
   border-radius: 1rem;
   transition: transform 1s, width 1s, border 1s, z-index 0s 1s;
@@ -296,6 +301,7 @@ section {
 #hobby .textfoto {
   display: block;
   height: 0;
+  font-size: .5rem;
   opacity: 0;
   visibility: hidden;
   transition: opacity 1s, visibility 1s;
@@ -314,9 +320,11 @@ section {
 #hobby .image_gallery {
   width: 100%;
   position: relative;
+  height: inherit;
 }
 #hobby .current_image {
   width: 100%;
+  height: inherit;
   display: block;
 }
 .next {
@@ -343,6 +351,7 @@ section {
   transition: transform 1s, width 1s, border 1s, z-index 0s 0s;
   z-index: 3;
   width: 100%;
+  height: fit-content;
   border: 2px solid black;
 }
 /*#endregion konicky*/
@@ -436,8 +445,9 @@ footer a {
     border-radius: 50%;
     width: 50%;
   }
-  #hobby {
+  .hobby_container {
     display: grid;
+    gap: 1rem;
     grid-template-columns: 1fr 1fr;
   }
   #hobby h2 {
@@ -445,6 +455,7 @@ footer a {
   }
   #hobby article {
     transform-origin: top left;
+    height: 20vh;
   }
   #hobby article.active {
     transform: scale(2);
@@ -479,6 +490,12 @@ footer a {
   footer img {
     border-radius: 50%;
     width: 40%;
+  }
+  .hobby_container {
+    grid-template-columns: 1fr 1fr 1fr;
+  }
+  #hobby h2 {
+    grid-column: span 3;
   }
 }
 
