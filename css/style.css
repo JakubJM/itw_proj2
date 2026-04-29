@@ -176,6 +176,7 @@ h1 {
   background-color: rgb(255,255,255,0.5);
   z-index: 100;
   top: 0;
+  justify-content: space-between;
   position: sticky;
 }
 
@@ -281,11 +282,14 @@ nav {
 /*#endregion*/
 /*#region section */
 section {
-  width: 90%;
   background-color: white;
   padding-top: 1.2rem;
 }
 
+section,
+footer {
+width: 90%;
+}
 /*#endregion */
 /*#region konicky*/
 .hobby_container {
@@ -389,7 +393,6 @@ footer {
   background-color: gray;
   margin: auto;
   align-items: center;
-  width: 90%;
   padding: 10px;
 }
 
@@ -429,7 +432,7 @@ footer a {
     align-items: initial;
     text-align: initial;
     font-size: 1.5rem;
-    margin: 0 0 0 auto;
+    margin: 0 20px;
   }
   
   .menu li {
@@ -545,7 +548,7 @@ footer a {
 /*#endregion*/
 
 /* Základní stav (skryto) */
-.main > *, 
+.main > :not(video), 
 section > *, 
 footer > * ,
 .hobby_container > article{
@@ -567,4 +570,10 @@ footer > * ,
     min-height: 100%;
     z-index: -1; /* Umístí video za obsah */
     object-fit: cover; /* Zachová poměr stran jako background-size: cover */
+}
+.gallery-img:fullscreen {
+  width: 100vw;
+  height: 100vh;
+  object-fit: contain; /* Obrázek se ořízne, aby se vešel */
+  background-color: black;
 }

@@ -1,6 +1,6 @@
 document.addEventListener("DOMContentLoaded", () => {
     // Vybere vše v sekcích a hlavní části
-    const elementsToAnimate = document.querySelectorAll('.main > *, section > *, footer > *, .hobby_container > article');
+    const elementsToAnimate = document.querySelectorAll('.main > :not(video), section > *, footer > *, .hobby_container > article');
 
     const observer = new IntersectionObserver((entries) => {
         entries.forEach((entry) => {

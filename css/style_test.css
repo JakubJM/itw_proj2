@@ -1,213 +1,159 @@
-@keyframes objeveni {
-  from {
-    opacity: 0;
-  }
-
-  to {
-    opacity: 1;
-  }
-}
-
-@keyframes zmizeni {
-  from {
-    opacity: 1;
-  }
-
-  to {
-    opacity: 0;
-  }
-}
-
+/* =========================
+   GLOBAL
+========================= */
 * {
-  margin: 0;
-  padding: 0;
   transition: 1s;
-  font-family: "Roboto", sans-serif;
+}
+
+/* =========================
+   LAYOUT / CONTAINERS
+========================= */
+.timeline {
+  height: 20vh;
+  width: 100%;
+  display: flex;
+  position: relative;
+  justify-content: center;
+  align-items: flex-end;
+}
+
+.timeline_echo {
+  background-color: rgb(137, 137, 187);
+  height: fit-content;
+  width: 50%;
+  display: flex;
+  justify-content: space-between;
+  position: relative;
+}
+
+/* =========================
+   SLIDES / BACKGROUND DIVS
+========================= */
+.div {
+  position: absolute;
+  width: 100%;
+  height: 20vh;
+  opacity: 0;
+  z-index: -1;
+  background-color: yellow;
+}
+
+.div02 {
+  background-color: aqua;
+}
+
+.div03 {
+  background-color: red;
+}
+
+/* =========================
+   ACTIVE / STATES
+========================= */
+.active {
+  left: 0;
+  opacity: 1;
+}
+
+.button_active {
+  opacity: 1 !important;
+  z-index: 10;
+}
+
+/* =========================
+   NAVIGATION BUTTONS
+========================= */
+.next,
+.previous {
+  position: absolute;
+  height: 50px;
+  width: 50px;
+  background-color: gray;
+  text-align: center;
+  bottom: 0;
+  opacity: 0;
+}
+
+.next {
+  right: 0;
+}
+
+.previous {
+  left: 0;
+}
+
+/* =========================
+   TIMELINE BASE LINE (before)
+========================= */
+.timeline_echo::before {
+  content: "";
+  position: absolute;
+  top: 5px;
+  left: var(--col-half-width, 10%);
+  width: calc(100% - (var(--col-half-width, 10%) * 2));
+  height: 10px;
+  background-color: rgb(207, 191, 191);
+  z-index: 10;
   box-sizing: border-box;
 }
 
-h2 {
-  width: 100%;
+/* =========================
+   TIMELINE ACTIVE LINE (after)
+========================= */
+.timeline_echo::after {
+  content: "";
+  position: absolute;
+  top: 5px;
+  left: calc(var(--line-left, 0%) + var(--col-half-width, 10%));
+  width: var(--line-width, 0%);
+  height: 10px;
+  background-color: red;
+  z-index: 15;
+  box-sizing: border-box;
+  transition: width 0.4s ease, left 0.4s ease;
+}
+
+/* =========================
+   TIMELINE ITEMS
+========================= */
+.timeline_echo div {
+  position: relative;
+  flex: 1;
   text-align: center;
-}
-
-a {
-  text-decoration: none;
-  color: black;
-}
-
-a:hover {
-  color: black;
-  text-decoration: underline;
-  transition: 1s;
+  padding-top: 30px;
   cursor: pointer;
-}
-
-ul li {
-  list-style: none;
-}
-
-img {
-  object-fit: cover;
-  border-radius: 1rem;
-}
-
-p {
-  padding: 0 1rem;
-}
-
-h2 {
-  padding: 1rem 0;
-}
-/*#region section */
-section {
-  width: 90%;
+  color: black;
   background-color: white;
-  padding-top: 1.2rem;
 }
 
-/*#endregion */
-/*#region konicky*/
-#hobby {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-  align-items: center;
-}
-
-#hobby>article {
-  width: 90%;
-  height: 30vh;
-  overflow: hidden;
-  position: relative;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  background-position: center;
-  background-size: cover;
-  margin: 1rem;
-  transition: all 1s ease;
-}
-
-#hobby h3 {
+/* =========================
+   DOTS (before)
+========================= */
+.timeline_echo div::before {
+  content: "";
+  background-color: rgb(207, 191, 191);
+  border-radius: 50%;
+  height: 20px;
+  width: 20px;
   position: absolute;
-  text-shadow:
-    -1px -1px 0 white,
-    1px -1px 0 white,
-    -1px 1px 0 white,
-    1px 1px 0 white;
+  top: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  box-sizing: border-box;
+  z-index: 20;
+  transition: background-color 0.2s ease 0.4s;
 }
 
-#hobby article.active h3 {
-  animation: zmizeni 1s forwards;
+/* =========================
+   DOT ACTIVE STATE
+========================= */
+.timeline_echo div.active::before {
+  background-color: red;
 }
 
-#hobby article.active .textfoto {
-  display: block;
-  animation: objeveni 1s forwards;
-}
-
-#hobby article.active {
-  width: 100%;
-  height: fit-content;
-}
-#hobby article p {
-  padding: 5px;
-}
-
-#hobby article .textfoto {
-  display: none;
-  border-radius: 0.1rem;
-  padding: 5px;
-  margin: 5px;
-}
-
-td,
-th {
-  border: 1px solid black;
-  padding: 5px;
-}
-
-table {
-  border-collapse: collapse;
-}
-
-/*#endregion konicky*/
-
-.image_gallery {
-  width: 80%;
-  margin: auto;
-}  
-.current_image {
-  max-width: 100%;
-  height: auto;
-  display: block;
-  margin: 0 auto;
-}  
-#image_thumbs {
-  display: flex;
-  justify-content: center;
-  gap: 10px;
-  margin-top: 10px;
-}  
-.thumb {
-  width: 80px;
-  height: 80px;
-  object-fit: cover;
+/* =========================
+   GLOBAL INTERACTIONS
+========================= */
+.timeline_echo div,
+.button_active {
   cursor: pointer;
-  border: 2px solid transparent;
-}  
-.thumb:hover {
-  border-color: #007bff;
-}  
-article {
-  margin: auto;
-  width: 80%;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  position: relative;
-}  
-article img {
-  width: 100%;
-  object-fit: cover;
-}  
-h3 {
-  font-size: 3rem;
-  position: absolute;
-}  
-p {
-  display: none;
-}  
-
-article.active h3 {
-  display: none;
-}  
-article.active p {
-  display: block;
-}  
-article.active .image_gallery {
-  width: 80%;
-  position: relative;
-}  
-article.active {
-  flex-direction: row;
-}  
-.previous {
-  display: none;
-}  
-.next {
-  right: 0;
-  display: none;
-}  
-button {
-  position: absolute;
-  top: 50%;
-}  
-article.active .next, 
-article.active .previous{
-  display: block;
 }
-
