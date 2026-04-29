@@ -354,6 +354,7 @@ width: 90%;
 }
 #hobby .current_image {
   width: 100%;
+  height: inherit;
   max-height: 30vh;
   display: block;
 }
@@ -499,9 +500,6 @@ footer a {
   #hobby article.active .textfoto {
     text-align: left;
   }
-  #hobby .current_image {
-  height: inherit;
-}
 }
 
 @media screen and (min-width: 1200px) {
@@ -564,8 +562,7 @@ footer > * ,
 /* CSS */
 .back-video {
     position: fixed;
-    right: 0;
-    bottom: 0;
+    top: 0;
     min-width: 100%;
     min-height: 100%;
     z-index: -1; /* Umístí video za obsah */
