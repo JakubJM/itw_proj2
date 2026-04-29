@@ -1,60 +1,70 @@
-let i = 1;
-let isAnimating = false;
+let i = 1; 
+let isAnimating = false;  
 
-function updateTimeline(newIndex, count) {
-  if (isAnimating || newIndex === i) return;
-  isAnimating = true;
+function updateTimeline(newIndex, count) {   
+  if (isAnimating || newIndex === i) return;   
+  isAnimating = true;    
 
-  const oldIndex = i;
-  i = newIndex;
-  
-  const echo = jQuery('.timeline_echo');
+  const oldIndex = i;   
+  i = newIndex;      
 
-  // VÝPOČET A NASTAVENÍ ČÁRY
-  const colWidth = 100 / count;
-  echo.css('--col-half-width', (colWidth / 2) + '%');
+  // Změněno na nový kontejner patičky
+  const echo = jQuery('.education_timeline .timeline');    
 
-  const usableWidth = 100 - colWidth;
-  const oldPercent = ((oldIndex - 1) / (count - 1)) * usableWidth;
-  const newPercent = ((newIndex - 1) / (count - 1)) * usableWidth;
+  // VÝPOČET A NASTAVENÍ ČÁRY   
+  const colWidth = 100 / count;   
+  echo.css('--col-half-width', (colWidth / 2) + '%');    
 
-  const isForward = newIndex > oldIndex;
-  echo.css({
-    '--line-left': (isForward ? oldPercent : newPercent) + '%',
-    '--line-width': Math.abs(newPercent - oldPercent) + '%'
-  });
+  const usableWidth = 100 - colWidth;   
+  const oldPercent = ((oldIndex - 1) / (count - 1)) * usableWidth;   
+  const newPercent = ((newIndex - 1) / (count - 1)) * usableWidth;    
 
-  // OKAMŽITÉ PŘEPNUTÍ OBSAHU
-  // 1. Šipky
-  jQuery('.previous').toggleClass('button_active', i > 1);
-  jQuery('.next').toggleClass('button_active', i < count);
+  const isForward = newIndex > oldIndex;   
+  echo.css({     
+    '--line-left': (isForward ? oldPercent : newPercent) + '%',     
+    '--line-width': Math.abs(newPercent - oldPercent) + '%'   
+  });    
 
-  // 2. Textové divy (Zjednodušeno pro < 10 položek)
-  jQuery('.timeline > .div').removeClass('active');
-  jQuery('.div0' + i).addClass('active');
+  // OKAMŽITÉ PŘEPNUTÍ OBSAHU   
+  // 1. Šipky   
+  jQuery('.education_timeline .previous').toggleClass('button_active', i > 1);   
+  jQuery('.education_timeline .next').toggleClass('button_active', i < count);    
 
-  // 3. Indikátory v patičce
-  jQuery('.timeline_echo div').removeClass('active');
-  jQuery('.timeline_echo [data-index="' + i + '"]').addClass('active');
+  // 2. Textové divy (nyní cílené přes data-index)
+  jQuery('.education_timeline > .div').removeClass('active');   
+  jQuery('.education_timeline > .div[data-index="' + i + '"]').addClass('active');    
 
-  // KROK 2: Smrštění čáry po 400ms
-  setTimeout(function() {
-    echo.css({ '--line-left': newPercent + '%', '--line-width': '0%' });
-    isAnimating = false;
-  }, 400);
-}
+  // 3. Indikátory v patičce   
+  jQuery('.education_timeline .timeline div').removeClass('active');   
+  jQuery('.education_timeline .timeline div[data-index="' + i + '"]').addClass('active');    
 
-// POSLUCHAČI
-jQuery('.next, .previous').click(function() {
-  const count = jQuery('.timeline_echo div').length;
-  const nextI = jQuery(this).hasClass('next') ? i + 1 : i - 1;
-  
-  if (nextI >= 1 && nextI <= count) {
-    updateTimeline(nextI, count);
-  }
+  // KROK 2: Smrštění čáry po 400ms   
+  setTimeout(function() {     
+    echo.css({ '--line-left': newPercent + '%', '--line-width': '0%' });     
+    isAnimating = false;   
+  }, 400); 
+}  
+
+// POSLUCHAČI 
+jQuery('.education_timeline .next, .education_timeline .previous').click(function() {   
+  const count = jQuery('.education_timeline .timeline div').length;   
+  const nextI = jQuery(this).hasClass('next') ? i + 1 : i - 1;      
+
+  if (nextI >= 1 && nextI <= count) {     
+    updateTimeline(nextI, count);   
+  } 
+});  
+
+jQuery('.education_timeline .timeline div').click(function() {   
+  const count = jQuery('.education_timeline .timeline div').length;   
+  updateTimeline(parseInt(jQuery(this).attr('data-index'), 10), count); 
 });
+// INICIALIZACE PŘI NAČTENÍ
+const initCount = jQuery('.education_timeline .timeline div').length;
+const initEcho = jQuery('.education_timeline .timeline');
+const initColWidth = 100 / initCount;
 
-jQuery('.timeline_echo div').click(function() {
-  const count = jQuery('.timeline_echo div').length;
-  updateTimeline(parseInt(jQuery(this).attr('data-index'), 10), count);
-});
+// Nastavení počátečních CSS proměnných pro 2 položky
+initEcho.css('--col-half-width', (initColWidth / 2) + '%');
+initEcho.css('--line-left', '0%');
+initEcho.css('--line-width', '0%');

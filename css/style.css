@@ -80,88 +80,125 @@ h1 {
 
 /*#endregion*/
 /*#region vzdelani*/
-.timeline {
+/*#region timeline*/
+.education_timeline {
+  height: 20vh;
+  width: 100%;
+  display: flex;
   position: relative;
-  max-width: 1200px;
-  margin: 0 auto;
+  justify-content: center;
+  align-items: flex-end;
 }
-
-.timeline::after {
-  content: "";
-  position: absolute;
-  width: 6px;
-  background-color: black;
-  top: 0;
-  bottom: 0;
-  left: 50%;
-  margin-left: -3px;
-}
-
-.container {
-  padding: 10px 40px;
-  position: relative;
-  background-color: inherit;
+#education .timeline {
+  background-color: rgb(137, 137, 187);
+  height: fit-content;
   width: 50%;
+  display: flex;
+  justify-content: space-between;
+  position: relative;
 }
 
-.container::after {
-  content: "";
+#education .div {
   position: absolute;
-  width: 25px;
-  height: 25px;
-  right: -17px;
-  background-color: white;
-  border: 4px solid #ff9f55;
-  top: 15px;
-  border-radius: 50%;
-  z-index: 1;
+  width: 100%;
+  height: 20vh;
+  opacity: 0;
+  z-index: -1;
+}
+#education div.div.active {
+  opacity: 1;
+  z-index: 0;
 }
 
-.left {
+#education .education_timeline.active {
+  left: 0;
+  opacity: 1;
+}
+
+#education .button_active {
+  opacity: 1 !important;
+  z-index: 10;
+}
+
+#education .next,
+#education .previous {
+  position: absolute;
+  height: 50px;
+  width: 50px;
+  background-color: gray;
+  text-align: center;
+  bottom: 0;
+  opacity: 0;
+}
+
+#education .next {
+  right: 0;
+}
+
+#education .previous {
   left: 0;
 }
 
-.right {
-  left: 50%;
-}
-
-.left::before {
-  content: " ";
-  height: 0;
+#education .timeline::before {
+  content: "";
   position: absolute;
-  top: 22px;
-  width: 0;
-  z-index: 1;
-  right: 30px;
-  border: medium solid black;
-  border-width: 10px 0 10px 10px;
-  border-color: transparent transparent transparent black;
+  top: 5px;
+  left: var(--col-half-width, 25%);
+  width: calc(100% - (var(--col-half-width, 25%) * 2));
+  height: 10px;
+  background-color: rgb(207, 191, 191);
+  z-index: 10;
+  box-sizing: border-box;
 }
 
-.right::before {
-  content: " ";
-  height: 0;
+#education .timeline::after {
+  content: "";
   position: absolute;
-  top: 22px;
-  width: 0;
-  z-index: 1;
-  left: 30px;
-  border: medium solid black;
-  border-width: 10px 10px 10px 0;
-  border-color: transparent black transparent transparent;
+  top: 5px;
+  left: calc(var(--line-left, 0%) + var(--col-half-width, 25%));
+  width: var(--line-width, 0%);
+  height: 10px;
+  background-color: red;
+  z-index: 15;
+  box-sizing: border-box;
+  transition: width 0.4s ease, left 0.4s ease;
 }
 
-.right::after {
-  left: -16px;
-}
-
-.content {
-  padding: 20px 30px;
-  border: 2px solid black;
+#education .timeline div {
   position: relative;
-  border-radius: 6px;
+  flex: 1;
+  text-align: center;
+  padding-top: 30px;
+  cursor: pointer;
+  color: black;
+  background-color: white;
 }
 
+#education .timeline div::before {
+  content: "";
+  background-color: rgb(207, 191, 191);
+  border-radius: 50%;
+  height: 20px;
+  width: 20px;
+  position: absolute;
+  top: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  box-sizing: border-box;
+  z-index: 20;
+  transition: background-color 0.2s ease 0.4s;
+}
+
+#education .timeline div.active::before {
+  background-color: red;
+}
+
+#education .timeline div,
+#education .button_active {
+  cursor: pointer;
+}
+
+/*#endregion/*
 /*#endregion*/
 /*#region projekty*/
 #project {
@@ -543,9 +580,6 @@ footer a {
   }
 }
 
-/*#endregion*/
-
-/* Základní stav (skryto) */
 .main > :not(video), 
 section > *, 
 footer > * ,
@@ -555,22 +589,21 @@ footer > * ,
     will-change: opacity, transform;
 }
 
-/* Stav při zobrazení */
 .is-visible {
     opacity: 1 !important;
 }
-/* CSS */
+
 .back-video {
     position: fixed;
     top: 0;
     min-width: 100%;
     min-height: 100%;
-    z-index: -1; /* Umístí video za obsah */
-    object-fit: cover; /* Zachová poměr stran jako background-size: cover */
+    z-index: -1; 
+    object-fit: cover; 
 }
 .gallery-img:fullscreen {
   width: 100vw;
   height: 100vh;
-  object-fit: contain; /* Obrázek se ořízne, aby se vešel */
+  object-fit: contain; 
   background-color: black;
 }

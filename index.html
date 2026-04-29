@@ -54,20 +54,33 @@
     </section>
     <section id="education">
       <h2>Vzdělání</h2>
-        <div class="timeline">
-          <div class="container left">
-            <div class="content">
-              <h3>2025/Teď</h3>
-              <p>Studuji FIT VUT</p>
+        <div class="education_timeline" count="2">
+          <div class="previous"><</div>
+          <div class="next button_active">></div>
+          <div class="div active" data-index="1">
+            <p>VUT FIT</p>
+          </div>
+          <div class="div" data-index="2">
+            <p>Vyhlaska 50</p>
+          </div>
+          <div class="div" data-index="3">
+            <p>Stredni skola Jedovnice</p>
+          </div>
+          <div class="timeline">
+            <div class="active" data-index="1">
+              <h3>2025/Ted</h3>
+              <p>VUT FIT</p>
+            </div>
+            <div data-index="2">
+              <h3>2025</h3>
+              <p>Vyhlaska 50</p>
+            </div>
+            <div data-index="3">
+              <h3>2021/2025</h3>
+              <p>SPS Jedovnice</p>
             </div>
           </div>
-          <div class="container right">
-            <div class="content">
-              <h3>2021/2025</h2>
-              <p>Střední průmyslová škola Jedovnice</p>
-            </div>
-          </div>
-      </div>
+        </div>
     </section>
     <section id="project">
       <h2>Projekty</h2>
@@ -159,6 +172,7 @@
       </ul>
     </footer>
   </div>
+    <script src="js/timeline.js"></script>
     <script src="js/develop.js"></script>
     <script src="js/develop2.js"></script>
     <script src="js/my_age.js"></script>
