@@ -1,4 +1,7 @@
-ITW druhy projekt, foto je pro legraci
+ITW druhy projekt, foto je pro legraci, na video v pozadi neberte v potaz, kvalita je horsi, ale bohuzel jsem zadne jine nenasel
+To ze fotky u konicku, pri preklikavani nejsou cele, je umysl, slouzi pouze pro rychle zobrazeni, pokud si chce nekdo prohlidnout foto bude v galerii
+Sekce Vyvoj slouzi pro me, zkousim tam nove napady na stranku
+
 index.html - hlavni soubor
 -galerie.js
 -ham_menu.js

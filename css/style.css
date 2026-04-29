@@ -92,7 +92,7 @@ h1 {
 #education .timeline {
   background-color: rgb(137, 137, 187);
   height: fit-content;
-  width: 50%;
+  width: fit-content;
   display: flex;
   justify-content: space-between;
   position: relative;
@@ -326,6 +326,7 @@ section {
 section,
 footer {
 width: 90%;
+min-width: 360px;
 }
 /*#endregion */
 /*#region konicky*/
@@ -449,6 +450,11 @@ footer a {
 
 /*#endregion*/
 /*#region @media */
+@media screen and (max-width:400px) {
+  #hobby article.active {
+   transform: scale(1.1);
+  }
+}
 @media screen and (min-width: 800px) {
   .head {
     display: flex;
