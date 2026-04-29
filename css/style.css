@@ -82,12 +82,12 @@ h1 {
 /*#region vzdelani*/
 /*#region timeline*/
 .education_timeline {
-  height: 20vh;
   width: 100%;
   display: flex;
   position: relative;
+  flex-direction: column;
   justify-content: center;
-  align-items: flex-end;
+  align-items: stretch;
 }
 #education .timeline {
   background-color: rgb(137, 137, 187);
@@ -97,17 +97,44 @@ h1 {
   justify-content: space-between;
   position: relative;
 }
+#education article {
+  height: fit-content;
+}
+#education div img {
+  height: 30vh;
+  max-width: 50%;
+  object-fit: cover;
+}
+#education article h3,
+#education article p {
+  padding: 0.2rem;
+}
+#education article table p {
+  padding: 0;
+}
+#education article table p:nth-of-type(2) {
+  font-size: 0.8rem;
+}
 
 #education .div {
-  position: absolute;
-  width: 100%;
-  height: 20vh;
   opacity: 0;
+  display: flex;
+  justify-content: space-between;
+  position: absolute;
+  visibility: hidden;
   z-index: -1;
+  padding: 2px;
+  margin: 10px;
+
 }
 #education div.div.active {
-  opacity: 1;
+  position: relative;
+  visibility: visible;
+  width: 90%;
+  margin: 1rem auto;
+  flex: 1;
   z-index: 0;
+  animation: objeveni 0.5s forwards;
 }
 
 #education .education_timeline.active {
@@ -138,42 +165,47 @@ h1 {
 #education .previous {
   left: 0;
 }
-
+#education .timeline {
+  overflow: auto;
+  position: relative;
+  width: 100%;
+}
 #education .timeline::before {
   content: "";
   position: absolute;
   top: 5px;
-  left: var(--col-half-width, 25%);
-  width: calc(100% - (var(--col-half-width, 25%) * 2));
+  left: var(--base-left, 0%);
+  width: var(--base-width, 100%);
   height: 10px;
   background-color: rgb(207, 191, 191);
   z-index: 10;
-  box-sizing: border-box;
 }
 
 #education .timeline::after {
   content: "";
   position: absolute;
   top: 5px;
-  left: calc(var(--line-left, 0%) + var(--col-half-width, 25%));
+  left: var(--line-left, 0%);
   width: var(--line-width, 0%);
   height: 10px;
   background-color: red;
   z-index: 15;
-  box-sizing: border-box;
   transition: width 0.4s ease, left 0.4s ease;
 }
 
 #education .timeline div {
   position: relative;
   flex: 1;
+  width: fit-content;
   text-align: center;
   padding-top: 30px;
   cursor: pointer;
   color: black;
   background-color: white;
 }
-
+#education .timeline div p {
+  width: 100%;
+}
 #education .timeline div::before {
   content: "";
   background-color: rgb(207, 191, 191);
@@ -542,6 +574,9 @@ footer a {
   }
   #hobby article.active .textfoto {
     text-align: left;
+  }
+  #education .timeline div {
+    width: fit-content;
   }
 }
 
