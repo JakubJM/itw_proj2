@@ -13,8 +13,8 @@
   --hover-color:60, 60, 202;
 }
 #theme-switch {
-  height: 50px;
-  width: 50px;
+  height: 40px;
+  width: 40px;
   padding: 0;
   border-radius: 50%;
   background-color: rgba(var(--base-color));
@@ -280,7 +280,14 @@ img:not(.current_image):not(footer > img) {
   display: grid;
   grid-template-columns: 1fr;
 }
-
+#project .text {
+  padding: 0;
+}
+#project .text p,
+#project .text h3,
+#project .text img{
+  padding: .2rem;
+}
 /*#endregion*/
 /*#region hamburger+head */
 .head {
@@ -569,18 +576,17 @@ footer a {
   }
   
   .first {
-    grid-template-columns: 1fr 1fr;
+    display: block;
   }
   
   .first:nth-of-type(even) img,
   .first:nth-of-type(even) a {
-    grid-column: 2;
-    grid-row: 1;
+    float: right;
   }
-  
-  .first:nth-of-type(even) p {
-    grid-column: 1;
-    grid-row: 1;
+  .first img:not(a img),
+  .first a {
+    float: left;
+    width: 50%;
   }
   
   #project .first:last-of-type {
@@ -629,15 +635,8 @@ footer a {
 
   .first:nth-of-type(even) img,
   .first:nth-of-type(even) a {
-    grid-column: 1;
-    grid-row: 1;
+    float: left;
   }
-
-  .first:nth-of-type(even) p {
-    grid-column: 2;
-    grid-row: 1;
-  }
-
   footer img {
     border-radius: 50%;
     width: 40%;
