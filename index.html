@@ -10,23 +10,30 @@
   <link rel="stylesheet" href="css/style.css">
   <title>Jakub Machač</title>
   <link rel="icon" type="image/x-icon" href="img/favicon.jpg">
+  <script type="text/javascript" src="js/theme-switch.js" defer></script>
   <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 </head>
 
 <body>
   <div class="page">
     <div class="head">
-      <div class="menu">
+      <nav>
+        <h3>Jakub Machač</h3>
+        <div class="menu">
         <ul>
           <li><a href="#personal">O mně</a></li>
           <li><a href="#education">Vzdělání</a></li>
           <li><a href="#project">Projekty</a></li>
           <li><a href="#hobby">Koníčky</a></li>
           <li><a href="test.html" target="_blank">Vývoj</a></li>
+          <li><button id="theme-switch">
+              <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="#e3e3e3"><path d="M480-120q-150 0-255-105T120-480q0-150 105-255t255-105q14 0 27.5 1t26.5 3q-41 29-65.5 75.5T444-660q0 90 63 153t153 63q55 0 101-24.5t75-65.5q2 13 3 26.5t1 27.5q0 150-105 255T480-120Z"/></svg>
+              <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="#e3e3e3"><path d="M338.5-338.5Q280-397 280-480t58.5-141.5Q397-680 480-680t141.5 58.5Q680-563 680-480t-58.5 141.5Q563-280 480-280t-141.5-58.5ZM200-440H40v-80h160v80Zm720 0H760v-80h160v80ZM440-760v-160h80v160h-80Zm0 720v-160h80v160h-80ZM256-650l-101-97 57-59 96 100-52 56Zm492 496-97-101 53-55 101 97-57 59Zm-98-550 97-101 59 57-100 96-56-52ZM154-212l101-97 55 53-97 101-59-57Z"/></svg>          
+              </button>
+          </li>
         </ul>
       </div>
-      <nav>
-        <h3>Jakub Machač</h3>
+        <div class="dark"></div>
         <div class="ham_menu">
           <span></span>
           <span></span>
@@ -39,7 +46,10 @@
           <source src="video/stranka.mp4" type="video/mp4">
           Váš prohlížeč nepodporuje video.
         </video>
-        <h1>Jakub Machač</h1>
+        <div class="text highlighted">
+          <h1>Jakub Machač</h1>
+          <h2>Vítejte na mé stránce</h2>
+        </div>
       </div>
     <section id="personal">
       <h2>O mně</h2>
@@ -60,8 +70,8 @@
             <article class="text">
               <img src="img/jedovnice.jpg" alt="jedovnice škola">
               <h3>Aneb, počátek studia</h3>
-              <p>Zde jse vystudoval obor Informační technologie. Kde jsem si přičichl k elektronice, programování CNC, síťařině a samozdřejmě i k programování obecně</p>
-              <p>V programování jsem se seznámil s HML, JavaScript, PHP, Pythom a C#.</p>
+              <p>Zde jsem vystudoval obor Informační technologie, kde jsem si přičichl k elektronice, programování CNC, síťařině a samozřejmě i k programování obecně.</p>
+              <p>V programování jsem se seznámil s HTML, JavaScriptem, PHP, Pythonem a C#</p>
               <p>Mimo nauku jsem navštěvoval kroužek kování a sváření, oboje mi šlo a bavilo.</p>
             </article>
           </div>
@@ -112,11 +122,11 @@
           </div>
           <div class="div" data-index="4">
             <article class="text">
-              <h3>Myšlení někdy bolý</h3>
+              <h3>Myšlení někdy bolí</h3>
               <img src="img/vut_fit.jpg" alt="budova FIT">
-              <p>Jsem teprve v prvním semestru a to už můžu říct že to není žádná procházka růžovým sadem. Obzvlášť když podceníš přípravu, a necháváš vše na poslední chvíly.</p>
-              <p>Za to jsem se ale v zimní semestr naučil programovat v C, dělat diagramy a počítat hodnoty v el. obvodech</p>
-              <p>Zatím mě nejvíc z předmětů bavily ITW "webovky" a IEL "elektronika" cvika, tam jsem si zkusil zapojit nějaké lechčí el. obvody a naměřit hodnoty. </p>
+              <p>Jsem teprve v prvním semestru a už teď můžu říct, že to není žádná procházka růžovým sadem. Obzvlášť když podceníš přípravu a necháváš vše na poslední chvíli.</p>
+              <p>Za zimní semestr jsem se naučil programovat v C, dělat diagramy a počítat hodnoty v elektrických obvodech.</p>
+              <p>Zatím mě nejvíc z předmětů bavily ITW "webovky" a IEL "elektronika" cvika, tam jsem si zkusil zapojit nějaké lehčí el. obvody a naměřit hodnoty. </p>
             </article>
           </div>
           <div class="timeline">
@@ -152,7 +162,7 @@
           <img src="img/3dprint.png" alt="3d model kulometu">
           <div class="text">
             <h3>Airsoft kulomet</h3>
-            <p>Tohle je můj aktualní projekt. Nejdřív jsem vymodeloval 3d díly podle originálních plánů, aby jsem se ujistil ze budou do sebe pasovat. Mechabox a hop-up bude z M249, hlaveň bude 510mm z mb03.</p>
+            <p>Tohle je můj aktuální projekt. Nejdřív jsem vymodeloval 3d díly podle originálních plánů, abych se ujistil ze budou do sebe pasovat. Mechabox a hop-up bude z M249, hlaveň bude 510mm z mb03.</p>
           </div>
         </article>
         <article class="first">
@@ -167,7 +177,7 @@
       <div class="hobby_container">
       <h2>Koníčky</h2>
       <article class="bike">
-        <h3>Motorka</h3>
+        <h3 class="highlighted">Motorka</h3>
         <div class="image_gallery" data-prefix="motorka" data-max="3">
         <button class="previous">&#8249;</button>
         <button class="next">&#8250;</button>
@@ -177,11 +187,11 @@
         <p>Měl jsem Beneli BN125, teď jezdím na Yamaha MT07.</p>
           <table>
           <tr>
-            <td>Rok vyroby</td>
+            <td>Rok výroby</td>
             <td>2018</td>
           </tr>
           <tr>
-            <td>Vykon</td>
+            <td>Výkon</td>
             <td>35kw</td>
           </tr>
           <tr>
@@ -192,16 +202,16 @@
         </div>
       </article>
       <article class="airsoft">
-        <h3>Airsoft</h3>
+        <h3 class="highlighted">Airsoft</h3>
         <div class="image_gallery" data-prefix="airsoft" data-max="7">
         <button class="previous">&#8249;</button>
         <button class="next">&#8250;</button>
         <img class="current_image" src="img/airsoft_01.jpg" alt="airsoft 1">
         </div>
-        <p class="textfoto text">Airsoft už hraji od 13let. Hraji převážně na pozici sniper s mb03, kterou jsem is sám vytunil. Jinak hraji se samopalem UTR45.</p>
+        <p class="textfoto text">Airsoft už hraji od 13 let. Hraji převážně na pozici sniper s mb03, kterou jsem si sám vytunil. Jinak hraji se samopalem UTR45.</p>
       </article>
       <article class="pomuni">
-        <h3>Pomuni</h3>
+        <h3 class="highlighted">Pomuni</h3>
         <div class="image_gallery" data-prefix="pomuni" data-max="2">
         <button class="previous">&#8249;</button>
         <button class="next">&#8250;</button>
@@ -210,7 +220,7 @@
         <p class="textfoto text">Jsem bratr krále pomunského a zároveň hlavní generál armády.</p>
       </article>
       <article class="fotbal">
-        <h3>Fotbal</h3>
+        <h3 class="highlighted">Fotbal</h3>
         <div class="image_gallery" data-prefix="fotbal" data-max="2">
         <button class="previous">&#8249;</button>
         <button class="next">&#8250;</button>
@@ -219,7 +229,7 @@
         <p class="textfoto text">Domlouvám a zároveň hraji fotbal ve vlastní skupině 20 lidí. Jsem brankář.</p>
       </article>
       <article class="fish">
-        <h3>Rybařeni</h3>
+        <h3 class="highlighted">Rybaření</h3>
         <div class="image_gallery" data-prefix="ryba" data-max="2">
         <button class="previous">&#8249;</button>
         <button class="next">&#8250;</button>
