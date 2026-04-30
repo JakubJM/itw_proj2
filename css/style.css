@@ -409,7 +409,9 @@ section {
 }
 
 section,
-#kontakty, .page {
+#kontakty,
+.page,
+footer {
 min-width: 360px;
 }
 section,
