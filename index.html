@@ -45,7 +45,7 @@
       <h2>O mně</h2>
       <article class="first">
         <img src="img/ja.jpg" loading="lazy" class="personal_foto border_radius" alt="moje fotka">
-        <div class="personal">
+        <div class="personal text">
           <h2>Ahoj, já jsem Jakub Machač</h2>
           <p>Je mi <span id="myAge"></span> let.</p>
         </div>
@@ -53,11 +53,11 @@
     </section>
     <section id="education">
       <h2>Vzdělání</h2>
-        <div class="education_timeline" count="2">
+        <div class="education_timeline">
           <div class="previous">&#8249;</div>
           <div class="next button_active">&#8250;</div>
           <div class="div active" data-index="1">
-            <article>
+            <article class="text">
               <img src="img/jedovnice.jpg" alt="jedovnice škola">
               <h3>Aneb, počátek studia</h3>
               <p>Zde jse vystudoval obor Informační technologie. Kde jsem si přičichl k elektronice, programování CNC, síťařině a samozdřejmě i k programování obecně</p>
@@ -66,7 +66,7 @@
             </article>
           </div>
           <div class="div" data-index="2">
-            <article>
+            <article class="text">
               <img src="img/icdl.jpg" alt="icdl logo">
               <h3>Co je vlastně ICDL</h3>
               <p>ICDL (International Certification of Digital Literacy, dříve ECDL) je celosvětově uznávaný vzdělávací a certifikační program, který ověřuje digitální znalosti a dovednosti. Slouží jako mezinárodní standard pro efektivní a bezpečnou práci s počítačem a digitálními technologiemi v běžném životě i na trhu práce</p>
@@ -104,14 +104,14 @@
             </article>
           </div>
           <div class="div" data-index="3">
-            <article>
+            <article class="text">
               <h3>Vidlička do zásuvky nepatří</h3>
               <img src="img/zarovka.jpg" alt="žárovka">
               <p>Disponuji odbornou způsobilostí v elektrotechnice dle nařízení vlády č. 194/2022 Sb. (dříve vyhláška 50/1978 Sb.), což mě opravňuje k samostatné činnosti a servisu elektrických zařízení.</p>
             </article>
           </div>
           <div class="div" data-index="4">
-            <article>
+            <article class="text">
               <h3>Myšlení někdy bolý</h3>
               <img src="img/vut_fit.jpg" alt="budova FIT">
               <p>Jsem teprve v prvním semestru a to už můžu říct že to není žádná procházka růžovým sadem. Obzvlášť když podceníš přípravu, a necháváš vše na poslední chvíly.</p>
@@ -142,18 +142,22 @@
     <section id="project">
       <h2>Projekty</h2>
         <article class="first">
-          <h3>Letadlo</h3>
           <a href="letadlo.html" target="_blank"><img src="img/plane.png" alt="letadlo javascript"></a>
-          <p>Tohle byl můj projekt 3.ročníku ze střední školy. Je to JavaScript letadlo, kde sbíráš body za zničené tanky. Z dnešními vědomosti by to šlo udělat rozhodně líp, možná to i udělám, kód je zatím přesně stejný jaký byl na střední.</p>
+          <div class="text">
+            <h3>Letadlo</h3>
+            <p>Tohle byl můj projekt 3.ročníku ze střední školy. Je to JavaScript letadlo, kde sbíráš body za zničené tanky. Z dnešními vědomosti by to šlo udělat rozhodně líp, možná to i udělám, kód je zatím přesně stejný jaký byl na střední.</p>
+          </div>
         </article>
         <article class="first">
-          <h3>Airsoft kulomet</h3>
           <img src="img/3dprint.png" alt="3d model kulometu">
-          <p>Tohle je můj aktualní projekt. Nejdřív jsem vymodeloval 3d díly podle originálních plánů, aby jsem se ujistil ze budou do sebe pasovat. Mechabox a hop-up bude z M249, hlaveň bude 510mm z mb03.</p>
+          <div class="text">
+            <h3>Airsoft kulomet</h3>
+            <p>Tohle je můj aktualní projekt. Nejdřív jsem vymodeloval 3d díly podle originálních plánů, aby jsem se ujistil ze budou do sebe pasovat. Mechabox a hop-up bude z M249, hlaveň bude 510mm z mb03.</p>
+          </div>
         </article>
         <article class="first">
           <img src="img/arduino.jpg" alt="arduino součástky">
-          <div>
+          <div class="text">
             <h3>Airsoft bomba</h3>
             <p>Tohle byl můj volnočasový projekt. Vyvijení bylo zastaveno, protože jsem ztratil kód.</p>
           </div>
@@ -165,11 +169,11 @@
       <article class="bike">
         <h3>Motorka</h3>
         <div class="image_gallery" data-prefix="motorka" data-max="3">
-        <button class="previous">&#8249;/button>
+        <button class="previous">&#8249;</button>
         <button class="next">&#8250;</button>
         <img class="current_image" src="img/motorka_01.jpg" alt="image 1">
         </div>
-        <div class="textfoto">
+        <div class="textfoto text">
         <p>Měl jsem Beneli BN125, teď jezdím na Yamaha MT07.</p>
           <table>
           <tr>
@@ -194,7 +198,7 @@
         <button class="next">&#8250;</button>
         <img class="current_image" src="img/airsoft_01.jpg" alt="airsoft 1">
         </div>
-        <p class="textfoto">Airsoft už hraji od 13let. Hraji převážně na pozici sniper s mb03, kterou jsem is sám vytunil. Jinak hraji se samopalem UTR45.</p>
+        <p class="textfoto text">Airsoft už hraji od 13let. Hraji převážně na pozici sniper s mb03, kterou jsem is sám vytunil. Jinak hraji se samopalem UTR45.</p>
       </article>
       <article class="pomuni">
         <h3>Pomuni</h3>
@@ -203,7 +207,7 @@
         <button class="next">&#8250;</button>
         <img class="current_image" src="img/pomuni_01.jpg" alt="pomuni 1">
         </div>
-        <p class="textfoto">Jsem bratr krále pomunského a zároveň hlavní generál armády.</p>
+        <p class="textfoto text">Jsem bratr krále pomunského a zároveň hlavní generál armády.</p>
       </article>
       <article class="fotbal">
         <h3>Fotbal</h3>
@@ -212,7 +216,7 @@
         <button class="next">&#8250;</button>
         <img class="current_image" src="img/fotbal_01.jpg" alt="fotbal 1">
         </div>
-        <p class="textfoto">Domlouvám a zároveň hraji fotbal ve vlastní skupině 20 lidí. Jsem brankář.</p>
+        <p class="textfoto text">Domlouvám a zároveň hraji fotbal ve vlastní skupině 20 lidí. Jsem brankář.</p>
       </article>
       <article class="fish">
         <h3>Rybařeni</h3>
@@ -221,7 +225,7 @@
         <button class="next">&#8250;</button>
         <img class="current_image" src="img/ryba_01.jpg" alt="ryba 1">
         </div>
-        <p class="textfoto">Teď už ne tak aktivně, ale když je čas tak si sednu k vodě.</p>
+        <p class="textfoto text">Teď už ne tak aktivně, ale když je čas tak si sednu k vodě.</p>
       </article>
       </div>
     </section>
