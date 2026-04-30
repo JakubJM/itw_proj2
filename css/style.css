@@ -120,6 +120,10 @@ img:not(.current_image):not(#kontakty > img) {
   max-width: 100%;
   width: 100%;
 }
+#personal img {
+  max-width: 500px;
+  margin-right: 20px;
+}
 article p {
   text-indent: .5rem;
   margin-bottom: .3rem;
@@ -481,9 +485,11 @@ section,
 }
 #hobby .current_image {
   width: 100%;
-  height: inherit;
   max-height: 30vh;
   display: block;
+}
+#hobby article.active .current_image {
+  height: inherit;
 }
 .next {
   right: 0;
@@ -580,7 +586,7 @@ footer p {
     display: flex;
   }
   .menu li {
-    padding: .2rem;
+    padding: 0 0.2rem;
     display: inline-block;
   }
   nav {
