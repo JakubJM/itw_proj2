@@ -100,7 +100,7 @@ h2 {
 h1 {
     font-size: 5rem;
 }
-img:not(.current_image):not(footer > img) {
+img:not(.current_image):not(#kontakty > img) {
   border-radius: 1rem;
 }
 .highlighted {
@@ -409,11 +409,11 @@ section {
 }
 
 section,
-footer, .page {
+#kontakty, .page {
 min-width: 360px;
 }
 section,
-footer {
+#kontakty {
   width: 90%;
 }
 /*#endregion */
@@ -512,27 +512,39 @@ footer {
   border: 2px solid rgb(var( --text-color));
 }
 /*#endregion konicky*/
-/*#region footer*/
 footer {
+  background-color: rgb(var(--text-color));
+  width: 90%;
+  height: fit-content;
+}
+footer p {
+  color: rgb(var(--base-color));
+  text-align: center;
+  padding: 1rem;
+}
+/*#region kontakty*/
+#kontakty {
   display: grid;
   grid-template-columns: 1fr 1fr;
-  background-color: rgb(var(--secondary-color));
+  background-color: rgb(var(--base-color));
   margin: auto;
   align-items: center;
   padding: 10px;
 }
-
-footer img {
+#kontakty h2 {
+  grid-column: span 2;
+}
+#kontakty img {
   border-radius: 50%;
   width: 80%;
   max-width: 200px;
   margin: auto;
 }
-footer li {
+#kontakty li {
   padding: 5px;
 }
 
-footer a {
+#kontakty a {
   padding-left: 5px;
 }
 
@@ -597,7 +609,7 @@ footer a {
     grid-template-columns: 20% auto;
   }
   
-  footer img {
+  #kontakty > img {
     border-radius: 50%;
     width: 50%;
   }
@@ -641,7 +653,7 @@ footer a {
   .first:nth-of-type(even) a {
     float: left;
   }
-  footer img {
+  #kontakty img {
     border-radius: 50%;
     width: 40%;
   }
@@ -664,7 +676,7 @@ footer a {
 
 .main > :not(video), 
 section > *, 
-footer > * ,
+#kontakty > * ,
 .hobby_container > article{
     opacity: 0;
     transition: opacity 0.5s ease, transform 0.5s ease;
