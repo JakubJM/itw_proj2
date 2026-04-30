@@ -120,7 +120,10 @@ img:not(.current_image):not(footer > img) {
   max-width: 100%;
   width: 100%;
 }
-
+article p {
+  text-indent: .5rem;
+  margin-bottom: .3rem;
+}
 /*#endregion*/
 /*#region vzdelani*/
 /*#region timeline*/
@@ -522,6 +525,7 @@ footer {
 footer img {
   border-radius: 50%;
   width: 80%;
+  max-width: 200px;
   margin: auto;
 }
 footer li {
