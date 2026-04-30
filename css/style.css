@@ -66,7 +66,9 @@ h1 {
     1px 1px 0 white;
     font-size: 5rem;
 }
-
+img:not(.current_image):not(footer > img) {
+  border-radius: 1rem;
+}
 /*#region o me*/
 .first {
   padding: 0 2rem 2rem 2rem;
@@ -104,6 +106,7 @@ h1 {
   height: 30vh;
   max-width: 50%;
   object-fit: cover;
+  float: right;
 }
 #education article h3,
 #education article p {
@@ -118,7 +121,6 @@ h1 {
 
 #education .div {
   opacity: 0;
-  display: flex;
   justify-content: space-between;
   position: absolute;
   visibility: hidden;
@@ -150,11 +152,11 @@ h1 {
 #education .next,
 #education .previous {
   position: absolute;
-  height: 50px;
-  width: 50px;
-  background-color: gray;
+  padding: 10px 20px;
+  border-radius: 50%;
+  background-color: rgba(180, 179, 179, 0.5);
   text-align: center;
-  bottom: 0;
+  top: 150px;
   opacity: 0;
 }
 
@@ -356,16 +358,23 @@ section {
 }
 
 section,
-footer {
-width: 90%;
+footer, .page {
 min-width: 360px;
+}
+section,
+footer {
+  width: 90%;
 }
 /*#endregion */
 /*#region konicky*/
 .hobby_container {
   width: 90%;
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 1rem;
   background-color: inherit;
   margin: auto;
+  padding-bottom: 1rem;
 }
 #hobby {
   position: relative;
@@ -552,8 +561,6 @@ footer a {
     width: 50%;
   }
   .hobby_container {
-    display: grid;
-    gap: 1rem;
     grid-template-columns: 1fr 1fr;
   }
   #hobby h2 {
