@@ -576,7 +576,6 @@ footer p {
 }
 
 /*#endregion*/
-/*#region @media */
 .main > :not(video), 
 section > *, 
 #kontakty > * ,
@@ -611,10 +610,10 @@ button{
   filter: drop-shadow(0 0 10px rgba(var(--text-color), 0.9));
   transition: filter 0.5s ease-in-out;
 }
-/* Hlavní kontejner galerie */
+
 #image_gallery {
   display: flex;
-  flex-direction: column; /* Položí obrázek nad náhledy */
+  flex-direction: column;
   align-items: center;
   justify-content: center;
   position: fixed;
@@ -625,18 +624,18 @@ button{
   background-color: rgba(0, 0, 0, 0.85);
   z-index: -20;
   opacity: 0;
-  pointer-events: none; /* Ignoruje kliknutí, když je skrytá */
+  pointer-events: none; 
   transition: opacity 0.3s ease;
 }
 
-/* Stav při otevřené galerii */
+
 #image_gallery.is-visible {
   opacity: 1;
   z-index: 200;
   pointer-events: auto;
 }
 
-/* Hlavní velký obrázek */
+
 #current_image { 
   max-width: 90%; 
   max-height: 70vh; 
@@ -646,10 +645,10 @@ button{
   object-fit: contain;
 }
 
-/* Kontejner pro náhledy (scroll pás) */
+
 #image_thumbs {
   display: flex;
-  justify-content: flex-start; /* Nutné pro správné centrování skriptem */
+  justify-content: flex-start;
   gap: 10px;
   width: 90%;
   overflow-x: scroll;
@@ -658,14 +657,14 @@ button{
 }
 
 
-/* Styl jednotlivých náhledů */
+
 .thumb {
   width: 80px;
   height: 80px;
   object-fit: cover;
   cursor: pointer;
   border: 2px solid transparent;
-  flex-shrink: 0;            /* Zabrání deformaci v flexu */
+  flex-shrink: 0;            
   transition: transform 0.2s, border-color 0.2s;
 }
 
@@ -678,7 +677,7 @@ button{
   transform: scale(1.1);
 }
 
-/* Zavírací tlačítko */
+
 #close {
   height: 50px;
   width: 50px;
@@ -692,7 +691,7 @@ button{
   z-index: 210;
 }
 
-/* Šipky (pokud je používáš) */
+
 #image_gallery .previous,#image_gallery .next {
   position: absolute;
   top: 50%;
@@ -715,34 +714,31 @@ button{
 #kontakty a{
   text-decoration-line: underline;
 }
-/* 1. Pro Chrome, Edge a Safari (Webkit) */
+
 ::-webkit-scrollbar {
-  width: 30px;               /* Šířka svislého posuvníku */
-  height: 30px;              /* Výška vodorovného posuvníku */
+  width: 30px;               
+  height: 30px;              
 }
 
 ::-webkit-scrollbar-track {
-  background: rgb(var(--base-color)); /* Pozadí dráhy */
+  background: rgb(var(--base-color)); 
 }
 
 ::-webkit-scrollbar-thumb {
-  background-color: rgb(var(--text-color)); /* Barva posuvníku */
-  border-radius: 10px;       /* Zaoblení */
-  border: 3px solid rgb(var(--base-color)); /* Vytvoří mezery kolem posuvníku */
+  background-color: rgb(var(--text-color)); 
+  border-radius: 10px;     
+  border: 3px solid rgb(var(--base-color));
 }
 
 ::-webkit-scrollbar-thumb:hover {
-  filter: brightness(0.8);    /* Mírně ztmavne při najetí myší */
+  filter: brightness(0.8);    
 }
 
-/* 2. Pro Firefox (standardní vlastnosti) */
 * {
-  scrollbar-width: auto;      /* "auto" nebo "thin" */
-  scrollbar-color: rgb(var(--text-color)) rgb(var(--base-color)); /* barva posuvníku a dráhy */
+  scrollbar-width: auto;     
+  scrollbar-color: rgb(var(--text-color)) rgb(var(--base-color)); 
 }
-/* Barvy pro všechny posuvníky, když je aktivní .darkmode */
 
-/* Pro Chrome, Edge, Safari */
 .darkmode::-webkit-scrollbar-track,
 .darkmode ::-webkit-scrollbar-track {
   background-color: rgb(var(--base-color));
@@ -751,15 +747,14 @@ button{
 .darkmode::-webkit-scrollbar-thumb,
 .darkmode ::-webkit-scrollbar-thumb {
   background-color: rgb(var(--text-color));
-  border: 3px solid rgb(var(--base-color)); /* Mezera kolem palce */
+  border: 3px solid rgb(var(--base-color)); 
 }
 
-/* Pro Firefox */
 .darkmode,
 .darkmode * {
   scrollbar-color: rgb(var(--text-color)) rgb(var(--base-color));
 }
-
+/*#region @media */
 @media screen and (max-width:400px) {
   #hobby article.active {
    transform: scale(1.1);
