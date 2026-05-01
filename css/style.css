@@ -76,9 +76,9 @@ a {
 }
 
 a:hover {
-  color: rgb(var( --text-color));
+  color: rgb(var( --hover-color));
   text-decoration: underline;
-  transition: 1s;
+  transition: 300ms;
   cursor: pointer;
 }
 
@@ -121,8 +121,9 @@ img:not(.current_image):not(#kontakty > img) {
   width: 100%;
 }
 #personal img {
-  max-width: 500px;
-  margin-right: 20px;
+  width: 90%;
+  display: block;
+  margin: auto;
 }
 article p {
   text-indent: .5rem;
@@ -201,7 +202,8 @@ article p {
   position: absolute;
   padding: 10px 20px;
   border-radius: 50%;
-  background-color: rgba(var(--secondary-color),0.5);
+  color: rgba(var(--text-color));
+  background-color: rgba(var(--secondary-color),0.6);
   text-align: center;
   top: 150px;
   opacity: 0;
@@ -478,7 +480,7 @@ section,
   font-size: 1rem;
   border: none;
   height: 100%;
-  background-color: rgba(var(--secondary-color),0.5);
+  background-color: rgba(var(--base-color),0.5);
 }
 #hobby .textfoto {
   display: block;
@@ -607,6 +609,7 @@ button:hover,
 .hover,
 button{
   filter: drop-shadow(0 0 10px rgba(var(--text-color), 0.9));
+  transition: filter 0.5s ease-in-out;
 }
 /* Hlavní kontejner galerie */
 #image_gallery {
@@ -716,12 +719,20 @@ button{
   white-space: nowrap;
   padding: 0;
 }
+#kontakty a{
+  text-decoration-line: underline;
+}
 @media screen and (max-width:400px) {
   #hobby article.active {
    transform: scale(1.1);
   }
 }
 @media screen and (min-width: 800px) {
+  #personal img {
+    max-width: 500px;
+    margin: 20px;
+    float: left;
+  }
   .hover,
   button {
     filter: unset;
