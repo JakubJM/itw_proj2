@@ -1,17 +1,22 @@
-:root{
-  --text-color:0, 0, 0;
-  --base-color:255, 255, 255;
-  --dot-color:255, 0, 0;
-  --secondary-color:180, 179, 179;
-  --hover-color:60, 60, 202;
+/*#region promenne a darkmode */
+:root {
+  --text-color: 0, 0, 0;
+  --base-color: 255, 255, 255;
+  --dot-color: 255, 0, 0;
+  --secondary-color: 180, 179, 179;
+  --hover-color: 60, 60, 202;
 }
+
 .darkmode {
-  --text-color:255, 255, 255;
-  --base-color:26, 26, 26;
-  --dot-color:255, 0, 0;
-  --secondary-color:180, 179, 179;
-  --hover-color:60, 60, 202;
+  --text-color: 255, 255, 255;
+  --base-color: 26, 26, 26;
+  --dot-color: 255, 0, 0;
+  --secondary-color: 180, 179, 179;
+  --hover-color: 60, 60, 202;
 }
+/*#endregion*/
+
+/*#region theme-switch */
 #theme-switch {
   height: 40px;
   width: 40px;
@@ -25,288 +30,207 @@
   top: 20px;
   right: 20px;
 }
-#theme-switch svg{
-  fill:rgb(var(--text-color));
-}
-#theme-switch svg:last-child {
-  display: none;
-}
-.darkmode #theme-switch svg:first-child {
-  display: none;
-}
-.darkmode #theme-switch svg:last-child {
-  display: block;
-}
-@keyframes objeveni {
-  from {
-    opacity: 0;
-  }
 
-  to {
-    opacity: 1;
-  }
+#theme-switch svg {
+  fill: rgb(var(--text-color));
+}
+
+/* Zobrazi ikonu mesice jen v darkmode */
+#theme-switch svg:last-child            { display: none; }
+.darkmode #theme-switch svg:first-child { display: none; }
+.darkmode #theme-switch svg:last-child  { display: block; }
+/*#endregion*/
+
+/*#region animace */
+@keyframes objeveni {
+  from { opacity: 0; }
+  to   { opacity: 1; }
 }
 
 @keyframes zmizeni {
-  from {
-    opacity: 1;
-  }
-
-  to {
-    opacity: 0;
-    z-index: -1;
-  }
+  from { opacity: 1; }
+  to   { opacity: 0; z-index: -1; }
 }
+/*#endregion*/
+
+/*#region reset a zakladni styly */
 * {
   margin: 0;
-  padding: 0;;
+  padding: 0;
   font-family: "Roboto", sans-serif;
   box-sizing: border-box;
   color: rgb(var(--text-color));
 }
 
+h1 { font-size: 5rem; }
+
 h2 {
   width: 100%;
   text-align: center;
+  padding: 1rem 0;
 }
 
 a {
   text-decoration: none;
-  color: rgb(var( --text-color));
+  color: rgb(var(--text-color));
 }
 
 a:hover {
-  color: rgb(var( --hover-color));
+  color: rgb(var(--hover-color));
   text-decoration: underline;
   transition: 300ms;
   cursor: pointer;
 }
 
-ul li {
-  list-style: none;
-}
+ul li { list-style: none; }
 
-img {
-  object-fit: cover;
-}
+img { object-fit: cover; }
 
-.text {
-  padding: 0 1rem;
-}
-
-h2 {
-  padding: 1rem 0;
-}
-h1 {
-    font-size: 5rem;
-}
+/* Zaoblene rohy pro vsechny obrazky mimo vyjimky */
 img:not(.current_image):not(#kontakty > img) {
   border-radius: 1rem;
 }
-.highlighted {
-    text-shadow:
-    -1px -1px 0 rgb(var(--base-color)),
-    1px -1px 0 rgb(var(--base-color)),
-    -1px 1px 0 rgb(var(--base-color)),
-    1px 1px 0 rgb(var(--base-color));
-}
-/*#region o me*/
-.first {
-  padding: 0 2rem 2rem 2rem;
-  display: grid;
-}
 
-.first img {
-  max-width: 100%;
-  width: 100%;
-}
-#personal img {
-  width: 90%;
-  display: block;
-  margin: auto;
-}
-article p {
-  text-indent: .5rem;
+.text { padding: 0 1rem; }
+
+article p { text-indent: 0.5rem; }
+
+/* Text s outlineovym stinem (pouzito napr. nad obrazky) */
+.highlighted {
+  text-shadow:
+    -1px -1px 0 rgb(var(--base-color)),
+     1px -1px 0 rgb(var(--base-color)),
+    -1px  1px 0 rgb(var(--base-color)),
+     1px  1px 0 rgb(var(--base-color));
 }
 /*#endregion*/
-/*#region vzdelani*/
-/*#region timeline*/
-.education_timeline {
-  width: 100%;
-  display: flex;
-  position: relative;
-  flex-direction: column;
-  justify-content: center;
-  align-items: stretch;
-}
-#education .timeline {
-  background-color: rgb(var(--secondary-color));
-  height: fit-content;
-  width: fit-content;
-  display: flex;
-  justify-content: space-between;
-  position: relative;
-}
-#education article {
-  height: fit-content;
-}
-#education div img {
-  height: 30vh;
-  max-width: 50%;
-  object-fit: cover;
-  float: right;
-}
-#education article h3,
-#education article p {
-  padding: 0.2rem;
-}
-#education article table p {
-  padding: 0;
-}
-#education article table p:nth-of-type(2) {
-  font-size: 0.8rem;
-}
 
-#education .div {
+/*#region scroll animace */
+/* Prvky jsou na zacatku neviditelne a objevi se pri scrollu */
+.main > :not(video),
+section > *,
+#kontakty > *,
+.hobby_container > article {
   opacity: 0;
-  justify-content: space-between;
-  position: absolute;
-  visibility: hidden;
-  z-index: -1;
-  padding: 2px;
-  margin: 10px;
-
-}
-#education div.div.active {
-  position: relative;
-  visibility: visible;
-  width: 90%;
-  margin: 1rem auto;
-  flex: 1;
-  z-index: 0;
-  animation: objeveni 0.5s forwards;
+  transition: opacity 0.5s ease, transform 0.5s ease;
+  will-change: opacity, transform;
 }
 
-#education .education_timeline.active {
-  left: 0;
-  opacity: 1;
+.is-visible {
+  opacity: 1 !important; /* !important donuti opacity: 1; */
+}
+/*#endregion*/
+
+/*#region scrollbar */
+::-webkit-scrollbar        { width: 30px; height: 30px; }
+::-webkit-scrollbar-track  { background: rgb(var(--base-color)); }
+
+::-webkit-scrollbar-thumb {
+  background-color: rgb(var(--text-color));
+  border-radius: 10px;
+  border: 3px solid rgb(var(--base-color));
 }
 
-#education .button_active {
-  z-index: 10;
-  opacity: 1 !important;
+::-webkit-scrollbar-thumb:hover { filter: brightness(0.8); }
+
+* {
+  scrollbar-width: auto;
+  scrollbar-color: rgb(var(--text-color)) rgb(var(--base-color));
 }
 
-#education .next,
-#education .previous {
-  position: absolute;
-  padding: 10px 20px;
-  border-radius: 50%;
-  color: rgba(var(--text-color));
-  background-color: rgba(var(--secondary-color),0.6);
-  text-align: center;
-  top: 150px;
-  opacity: 0;
-}
-
-#education .next {
-  right: 0;
-}
-
-#education .previous {
-  left: 0;
-}
-#education .timeline {
-  overflow: auto;
-  position: relative;
-  width: 100%;
-}
-#education .timeline::before {
-  content: "";
-  position: absolute;
-  top: 5px;
-  left: var(--base-left, 0%);
-  width: var(--base-width, 100%);
-  height: 10px;
-  background-color: rgb(var(--secondary-color));
-  z-index: 10;
-}
-
-#education .timeline::after {
-  content: "";
-  position: absolute;
-  top: 5px;
-  left: var(--line-left, 0%);
-  width: var(--line-width, 0%);
-  height: 10px;
-  background-color: rgb(var( --dot-color));
-  z-index: 15;
-  transition: width 0.4s ease, left 0.4s ease;
-}
-
-#education .timeline div {
-  position: relative;
-  flex: 1;
-  width: fit-content;
-  text-align: center;
-  padding-top: 30px;
-  cursor: pointer;
-  color: rgb(var( --text-color));
+/* Scrollbar v darkmode – explicitni prepis pro jistotu */
+.darkmode::-webkit-scrollbar-track,
+.darkmode ::-webkit-scrollbar-track {
   background-color: rgb(var(--base-color));
 }
-#education .timeline div p {
+
+.darkmode::-webkit-scrollbar-thumb,
+.darkmode ::-webkit-scrollbar-thumb {
+  background-color: rgb(var(--text-color));
+  border: 3px solid rgb(var(--base-color));
+}
+
+.darkmode,
+.darkmode * {
+  scrollbar-color: rgb(var(--text-color)) rgb(var(--base-color));
+}
+/*#endregion*/
+
+/*#region layout – stranka a sekce */
+/* Minimalni sirka pro male displeje */
+section,
+#kontakty,
+.page,
+footer { min-width: 360px; }
+
+section,
+#kontakty { width: 90%; }
+
+section {
+  background-color: rgb(var(--base-color));
+  padding-top: 1.2rem;
+}
+
+/* Stred stranky – hero oblast */
+.main {
+  display: flex;
+  height: 100vh;
   width: 100%;
+  text-align: center;
+  align-items: center;
+  justify-content: center;
 }
-#education .timeline div::before {
-  content: "";
-  background-color: rgb(var(--secondary-color));
-  border-radius: 50%;
-  height: 20px;
-  width: 20px;
-  position: absolute;
+
+/* Cela stranka */
+.page {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-size: cover;
+}
+
+/* Video v pozadi fixni za obsahem */
+.back-video {
+  position: fixed;
   top: 0;
-  left: 50%;
-  transform: translateX(-50%);
-  box-sizing: border-box;
-  z-index: 20;
-  transition: background-color 0.2s ease 0.4s;
+  min-width: 100%;
+  min-height: 100%;
+  z-index: -1;
+  object-fit: cover;
 }
 
-#education .timeline div.active::before {
-  background-color: rgb(var( --dot-color));
+/* Glow efekt na hover a tlacitka */
+.hover:hover,
+button:hover,
+.hover {
+  filter: drop-shadow(0 0 10px rgba(var(--text-color), 0.9));
+  transition: filter 0.2s ease-in-out !important;
 }
-
-#education .timeline div,
-#education .button_active {
-  cursor: pointer;
-}
-
-/*#endregion/*
+button,
+.hover {cursor: pointer;}
 /*#endregion*/
-/*#region projekty*/
-#project {
-  display: grid;
-  grid-template-columns: 1fr;
-}
-#project .text {
-  padding: 0;
-}
-#project .text p,
-#project .text h3,
-#project .text img{
-  padding: .2rem;
-}
-/*#endregion*/
+
 /*#region hamburger+head */
 .head {
   width: 100%;
-  background-color: rgba(var(--base-color),0.5);
+  background-color: rgba(var(--base-color), 0.5);
   z-index: 100;
   top: 0;
   justify-content: space-between;
   position: sticky;
 }
 
+.head h3 {
+  font-size: 1.5rem;
+  white-space: nowrap;
+  padding: 0;
+}
+
+/* Ham mobilni menu */
 .menu {
   background-color: rgb(var(--base-color));
   z-index: 100;
@@ -325,33 +249,10 @@ article p {
   transition: 0.3s ease;
 }
 
-.menu.active {
-  right: 0;
-}
-
-.main {
-  display: flex;
-  height: 100vh;
-  width: 100%;
-  text-align: center;
-  align-items: center;
-  justify-content: center;
-}
-
-.page {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  /*background-image: url("../img/backgound.jpg");*/
-  background-position: center;
-  background-repeat: no-repeat;
-  background-attachment: fixed;
-  background-size: cover;
-}
+.menu.active { right: 0; }
 
 nav {
-  color: rgb(var( --text-color));
+  color: rgb(var(--text-color));
   z-index: 100;
   padding: 1rem;
   display: flex;
@@ -360,6 +261,7 @@ nav {
   position: sticky;
 }
 
+/* Hamburger ikona */
 .ham_menu {
   z-index: 200;
   height: 2rem;
@@ -372,7 +274,7 @@ nav {
 .ham_menu span {
   height: 0.2rem;
   width: 100%;
-  background-color: rgb(var( --text-color));
+  background-color: rgb(var(--text-color));
   border-radius: 25px;
   position: absolute;
   top: 50%;
@@ -381,51 +283,208 @@ nav {
   transition: 0.3s ease;
 }
 
-.ham_menu:hover span {
-  background-color: rgb(var(--hover-color));
-}
+.ham_menu:hover span { background-color: rgb(var(--hover-color)); }
 
-.ham_menu span:nth-child(1) {
-  top: 25%;
-}
+.ham_menu span:nth-child(1) { top: 25%; }
+.ham_menu span:nth-child(3) { top: 75%; }
 
-.ham_menu span:nth-child(3) {
-  top: 75%;
-}
-
+/* Animace hamburgeru pri otevreni */
 .ham_menu.active span:nth-child(1) {
   top: 40%;
   transform: translate(-50%, 50%) rotate(45deg);
 }
-
-.ham_menu.active span:nth-child(2) {
-  opacity: 0;
-}
-
+.ham_menu.active span:nth-child(2) { opacity: 0; }
 .ham_menu.active span:nth-child(3) {
   top: 40%;
   transform: translate(-50%, 50%) rotate(-45deg);
 }
-
 /*#endregion*/
-/*#region section */
-section {
-  background-color: rgb(var(--base-color));
-  padding-top: 1.2rem;
+
+/*#region person */
+.first {
+  padding: 0 2rem 2rem 2rem;
+  display: grid;
 }
 
-section,
-#kontakty,
-.page,
-footer {
-min-width: 360px;
+.first img {
+  max-width: 100%;
+  width: 100%;
 }
-section,
-#kontakty {
+
+#personal img {
   width: 90%;
+  display: block;
+  margin: auto;
 }
-/*#endregion */
-/*#region konicky*/
+/*#endregion*/
+
+/*#region education */
+
+/*#region timeline */
+.education_timeline {
+  width: 100%;
+  display: flex;
+  position: relative;
+  flex-direction: column;
+  justify-content: center;
+  align-items: stretch;
+}
+
+#education .timeline {
+  overflow: auto;
+  position: relative;
+  width: 100%;
+  background-color: rgb(var(--secondary-color));
+  height: fit-content;
+  display: flex;
+  justify-content: space-between;
+}
+
+/* Osa pozadi timeliny seda */
+#education .timeline::before {
+  content: "";
+  position: absolute;
+  top: 5px;
+  left: var(--base-left, 0%);
+  width: var(--base-width, 100%);
+  height: 10px;
+  background-color: rgb(var(--secondary-color));
+  z-index: 10;
+}
+
+/* Osa progresu timeliny cervena */
+#education .timeline::after {
+  content: "";
+  position: absolute;
+  top: 5px;
+  left: var(--line-left, 0%);
+  width: var(--line-width, 0%);
+  height: 10px;
+  background-color: rgb(var(--dot-color));
+  z-index: 15;
+  transition: width 0.4s ease, left 0.4s ease;
+}
+
+/*  Div na timeline */
+#education .timeline div {
+  position: relative;
+  flex: 1;
+  width: fit-content;
+  text-align: center;
+  padding-top: 30px;
+  cursor: pointer;
+  color: rgb(var(--text-color));
+  background-color: rgb(var(--base-color));
+}
+
+#education .timeline div p { width: 100%; }
+
+/* Kolecko jednotlivich div na timeline */
+#education .timeline div::before {
+  content: "";
+  background-color: rgb(var(--secondary-color));
+  border-radius: 50%;
+  height: 20px;
+  width: 20px;
+  position: absolute;
+  top: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  box-sizing: border-box;
+  z-index: 20;
+  transition: background-color 0.2s ease 0.4s;
+}
+
+/* Aktivni cervene kolecku na timeline */
+#education .timeline div.active::before {
+  background-color: rgb(var(--dot-color));
+}
+
+#education .timeline { cursor: pointer; }
+/*#endregion*/
+
+#education article { height: fit-content; }
+
+#education div img {
+  height: 30vh;
+  max-width: 50%;
+  object-fit: cover;
+  float: right;
+}
+
+#education article h3,
+#education article p   { padding: 0.2rem; }
+
+#education article table p                { padding: 0; }
+#education article table p:nth-of-type(2) { font-size: 0.8rem; }
+
+/* Obsah karet, skryty ve vychozim stavu */
+#education .div {
+  opacity: 0;
+  justify-content: space-between;
+  position: absolute;
+  visibility: hidden;
+  z-index: -1;
+  padding: 2px;
+  margin: 10px;
+}
+
+/* Aktivni karta education */
+#education div.div.active {
+  position: relative;
+  visibility: visible;
+  width: 90%;
+  margin: 1rem auto;
+  flex: 1;
+  z-index: 0;
+  animation: objeveni 0.5s forwards;
+}
+
+#education .education_timeline.active {
+  left: 0;
+  opacity: 1;
+}
+
+
+/* Tlacitka pro posun */
+#education .next,
+#education .previous {
+  position: absolute;
+  padding: 10px 20px;
+  visibility: hidden;
+  border-radius: 50%;
+  color: rgba(var(--text-color));
+  background-color: rgba(var(--secondary-color), 0.6);
+  text-align: center;
+  top: 150px;
+  opacity: 0;
+}
+
+#education .button_active {
+  z-index: 10;
+  opacity: 1 ;
+  visibility: visible;
+}
+#education .next     { right: 0; }
+#education .previous { left: 0; }
+/*#endregion*/
+
+/*#region project */
+#project {
+  display: grid;
+  grid-template-columns: 1fr;
+}
+
+#project .text { padding: 0; }
+
+#project .text p,
+#project .text h3,
+#project .text img { padding: 0.2rem; }
+/*#endregion*/
+
+/*#region hobby */
+#hobby { position: relative; z-index: 10; }
+
 .hobby_container {
   width: 90%;
   display: grid;
@@ -435,26 +494,26 @@ section,
   margin: auto;
   padding-bottom: 1rem;
 }
-#hobby {
-  position: relative;
-  z-index: 10;
-}
+
 #hobby .textfoto > * {
   margin-bottom: 5px;
   margin-top: 5px;
 }
+
 #hobby table {
   margin: auto;
   border-collapse: collapse;
 }
+
 #hobby table tr,
 #hobby table td,
 #hobby table {
-  border: 1px solid rgb(var( --text-color));
+  border: 1px solid rgb(var(--text-color));
 }
-#hobby table td {
-  padding: 5px;
-}
+
+#hobby table td { padding: 5px; }
+
+/* Karty hobby */
 #hobby article {
   z-index: 1;
   background-color: inherit;
@@ -470,6 +529,8 @@ section,
   transition: transform 1s, width 1s, border 1s, z-index 0s 1s;
   cursor: pointer;
 }
+
+/* Tlacitka mini galerie karty, skryty ve vychozim stavu */
 #hobby button {
   position: absolute;
   display: block;
@@ -480,8 +541,10 @@ section,
   font-size: 1rem;
   border: none;
   height: 100%;
-  background-color: rgba(var(--base-color),0.5);
+  background-color: rgba(var(--base-color), 0.5);
 }
+
+/* Text s fotkou, skryty ve vychozim stavu */
 #hobby .textfoto {
   display: block;
   height: 0;
@@ -491,126 +554,63 @@ section,
   transition: opacity 1s, visibility 1s;
   animation: zmizeni 1s forwards;
 }
+
+/* Nadpis karticy, zobrazen jen kdyz je zavrena */
 #hobby h3 {
   position: absolute;
   animation: objeveni 1s forwards;
   z-index: 2;
 }
+
+/* Mni galerie karty s obrazkem */
 #hobby .image_gallery {
   width: 100%;
   position: relative;
   height: inherit;
 }
+
 #hobby .current_image {
   width: 100%;
   height: inherit;
   max-height: 30vh;
   display: block;
 }
-#hobby article.active .current_image {
-  height: inherit;
-}
-.next {
-  right: 0;
-}
-#hobby article.active button {
-  cursor: pointer;
-}
+
+#hobby article.active .current_image { height: inherit; }
+
+.next { right: 0; }
+
+/* Rozbalena karta  */
+#hobby article.active button { cursor: pointer; }
+
 #hobby article.active button,
 #hobby article.active .textfoto {
   opacity: 1;
   visibility: visible;
   animation: objeveni 1s forwards;
 }
+
 #hobby article.active .textfoto {
   width: 100%;
   height: 100%;
   text-align: center;
 }
-#hobby article.active h3 {
-  animation: zmizeni 1s forwards;
-}
+
+/* Nadpis zmizi po otevreni karty */
+#hobby article.active h3 { animation: zmizeni 1s forwards; }
+
+/* Rozbalena karta */
 #hobby article.active {
   transition: transform 1s, width 1s, border 1s, z-index 0s 0s;
   z-index: 3;
   width: 100%;
   height: fit-content;
   transform: scale(1.2);
-  border: 2px solid rgb(var( --text-color));
+  border: 2px solid rgb(var(--text-color));
 }
-/*#endregion konicky*/
-footer {
-  background-color: rgb(var(--text-color));
-  width: 90%;
-  height: fit-content;
-}
-footer p {
-  color: rgb(var(--base-color));
-  text-align: center;
-  padding: 1rem;
-}
-/*#region kontakty*/
-#kontakty {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  background-color: rgb(var(--base-color));
-  margin: auto;
-  align-items: center;
-  padding: 10px;
-}
-#kontakty h2 {
-  grid-column: span 2;
-}
-#kontakty img {
-  border-radius: 50%;
-  width: 80%;
-  max-width: 200px;
-  margin: auto;
-}
-#kontakty li {
-  padding: 5px;
-}
-
-#kontakty a {
-  padding-left: 5px;
-}
-
 /*#endregion*/
-.main > :not(video), 
-section > *, 
-#kontakty > * ,
-.hobby_container > article{
-    opacity: 0;
-    transition: opacity 0.5s ease, transform 0.5s ease;
-    will-change: opacity, transform;
-}
 
-.is-visible {
-    opacity: 1 !important;
-}
-
-.back-video {
-    position: fixed;
-    top: 0;
-    min-width: 100%;
-    min-height: 100%;
-    z-index: -1; 
-    object-fit: cover; 
-}
-.gallery-img:fullscreen {
-  width: 100vw;
-  height: 100vh;
-  object-fit: contain; 
-  background-color: rgb(var( --text-color));
-}
-.hover:hover, 
-button:hover,
-.hover,
-button{
-  filter: drop-shadow(0 0 10px rgba(var(--text-color), 0.9));
-  transition: filter 0.5s ease-in-out;
-}
-
+/*#region galerie */
 #image_gallery {
   display: flex;
   flex-direction: column;
@@ -624,28 +624,28 @@ button{
   background-color: rgba(0, 0, 0, 0.85);
   z-index: -20;
   opacity: 0;
-  pointer-events: none; 
+  pointer-events: none;
   transition: opacity 0.3s ease;
 }
 
-
+/* Aktivni galerie prekryje vse ostatni */
 #image_gallery.is-visible {
   opacity: 1;
   z-index: 200;
   pointer-events: auto;
 }
 
-
-#current_image { 
-  max-width: 90%; 
-  max-height: 70vh; 
+/* Hlavni zobrazeny obrazek */
+#current_image {
+  max-width: 90%;
+  max-height: 70vh;
   height: auto;
-  display: block; 
+  display: block;
   margin: 0 auto 20px auto;
   object-fit: contain;
 }
 
-
+/* Pruh s miniaturami */
 #image_thumbs {
   display: flex;
   justify-content: flex-start;
@@ -656,127 +656,125 @@ button{
   padding: 10px 0;
 }
 
-
-
 .thumb {
   width: 80px;
   height: 80px;
   object-fit: cover;
   cursor: pointer;
   border: 2px solid transparent;
-  flex-shrink: 0;            
+  flex-shrink: 0;
   transition: transform 0.2s, border-color 0.2s;
 }
 
-.thumb:hover {
-  border-color: #007bff;
-}
+.thumb:hover  { border-color: #007bff; }
 
 .thumb.active {
   border: 3px solid #007bff;
   transform: scale(1.1);
 }
 
-
+/* Tlacitko zavrit */
 #close {
   height: 50px;
   width: 50px;
   right: 20px;
   top: 20px;
   border-radius: 20%;
-  background-color: rgba(var(--base-color),0.5);
+  background-color: rgba(var(--base-color), 0.5);
   border: 2px solid rgb(var(--text-color));
   position: absolute;
   cursor: pointer;
   z-index: 210;
 }
 
-
-#image_gallery .previous,#image_gallery .next {
+/* Sipky pro posun v galerii */
+#image_gallery .previous,
+#image_gallery .next {
   position: absolute;
   top: 50%;
   transform: translateY(-50%);
-  background: rgba(var(--base-color),0.5);
-  color: rgb(var( --text-color));
+  background: rgba(var(--base-color), 0.5);
+  color: rgb(var(--text-color));
   border: none;
   padding: 15px;
   cursor: pointer;
   font-size: 24px;
 }
-#image_gallery .previous { left: 10px; }
-#image_gallery .next { right: 10px; } 
 
-.head h3 {
-  font-size: 1.5rem;
-  white-space: nowrap;
-  padding: 0;
+#image_gallery .previous { left: 10px; }
+#image_gallery .next     { right: 10px; }
+
+/* Fullscreen mod pro jednotlive obrazky */
+.gallery-img:fullscreen {
+  width: 100vw;
+  height: 100vh;
+  object-fit: contain;
+  background-color: rgb(var(--text-color));
 }
-#kontakty a{
+/*#endregion*/
+
+/*#region kontakty */
+#kontakty {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  background-color: rgb(var(--base-color));
+  margin: auto;
+  align-items: center;
+  padding: 10px;
+}
+
+#kontakty h2 { grid-column: span 2; }
+#kontakty li { padding: 5px; }
+
+#kontakty a {
+  padding-left: 5px;
   text-decoration-line: underline;
 }
 
-::-webkit-scrollbar {
-  width: 30px;               
-  height: 30px;              
+#kontakty img {
+  border-radius: 50%;
+  width: 80%;
+  max-width: 200px;
+  margin: auto;
 }
+/*#endregion*/
 
-::-webkit-scrollbar-track {
-  background: rgb(var(--base-color)); 
-}
-
-::-webkit-scrollbar-thumb {
-  background-color: rgb(var(--text-color)); 
-  border-radius: 10px;     
-  border: 3px solid rgb(var(--base-color));
-}
-
-::-webkit-scrollbar-thumb:hover {
-  filter: brightness(0.8);    
-}
-
-* {
-  scrollbar-width: auto;     
-  scrollbar-color: rgb(var(--text-color)) rgb(var(--base-color)); 
-}
-
-.darkmode::-webkit-scrollbar-track,
-.darkmode ::-webkit-scrollbar-track {
-  background-color: rgb(var(--base-color));
-}
-
-.darkmode::-webkit-scrollbar-thumb,
-.darkmode ::-webkit-scrollbar-thumb {
+/*#region paticka */
+footer {
   background-color: rgb(var(--text-color));
-  border: 3px solid rgb(var(--base-color)); 
+  width: 90%;
+  height: fit-content;
 }
 
-.darkmode,
-.darkmode * {
-  scrollbar-color: rgb(var(--text-color)) rgb(var(--base-color));
+footer p {
+  color: rgb(var(--base-color));
+  text-align: center;
+  padding: 1rem;
 }
+/*#endregion*/
+
 /*#region @media */
-@media screen and (max-width:400px) {
-  #hobby article.active {
-   transform: scale(1.1);
-  }
+
+/* Male displeje (max 400px) */
+@media screen and (max-width: 400px) {
+  #hobby article.active { transform: scale(1.1); }
 }
+
+/* Tablety a vetsi (min 800px) */
 @media screen and (min-width: 800px) {
-  #personal img {
-    max-width: 500px;
-    margin: 20px;
-    float: left;
-  }
+
+  /* Glow efekt jen na dotykovych, na mysi se jenom hover */
   .hover,
-  button {
-    filter: unset;
-  }
+  button { filter: unset; }
+
+  /* Nav lista, zmizeni hamburger menu */
   .head {
     display: flex;
     padding: 5px;
   }
-  .ham_menu {
-    display: none;
-  }
+
+  .ham_menu { display: none; }
+
   .menu {
     position: relative;
     background-color: unset;
@@ -787,103 +785,99 @@ button{
     right: unset;
     margin-left: auto;
   }
+
   .menu ul {
-    width:unset;
+    width: unset;
     display: flex;
     align-items: center;
   }
+
   .menu li {
     font-size: 1.5rem;
     padding: 0 1rem;
     white-space: nowrap;
     display: inline-block;
   }
+
   nav {
     align-items: center;
     padding: 0;
     width: 100%;
   }
-  
-  
-  .first {
-    display: block;
-  }
-  
+
+  /* Text obteka fotky */
+  .first { display: block; }
+
   .first:nth-of-type(even) img,
-  .first:nth-of-type(even) a {
-    float: right;
-  }
+  .first:nth-of-type(even) a { float: right; }
+
   .first img:not(a img),
   .first a {
     float: left;
     width: 50%;
   }
-  
-  #project .first:last-of-type {
-    grid-template-columns: 20% auto;
+
+  #project .first:last-of-type { grid-template-columns: 20% auto; }
+
+  #personal img {
+    max-width: 500px;
+    margin: 20px;
+    float: left;
   }
-  
+
   #kontakty > img {
     border-radius: 50%;
     width: 50%;
   }
-  .hobby_container {
-    grid-template-columns: 1fr 1fr;
-  }
-  #hobby h2 {
-    grid-column: span 2;
-  }
+
+  /* Hobby – 2 sloupce */
+  .hobby_container { grid-template-columns: 1fr 1fr; }
+  #hobby h2 { grid-column: span 2; }
+
   #hobby article {
     transform-origin: top left;
     height: 20vh;
   }
+
+  /* Rozbalena karta, vetsi scale */
   #hobby article.active {
     transform: scale(2);
     height: 20vh;
     z-index: 3;
     flex-direction: row;
   }
-  #hobby article:nth-of-type(even) {
-    transform-origin: top right;
-  }
-  #hobby article.active .textfoto {
-    text-align: left;
-  }
-  #education .timeline div {
-    width: fit-content;
-  }
+
+  /* Karta vpravo se rozbaluje doleva */
+  #hobby article:nth-of-type(even) { transform-origin: top right; }
+
+  #hobby article.active .textfoto { text-align: left; }
+
+  #education .timeline div { width: fit-content; }
 }
 
+/* Desktop (min 1200px) */
 @media screen and (min-width: 1200px) {
-  #project {
-    grid-template-columns: 1fr 1fr;
-  }
 
-  #project h2 {
-    grid-column: span 2;
-  }
+  /* Projekty ve dvou sloupcich */
+  #project { grid-template-columns: 1fr 1fr; }
+  #project h2 { grid-column: span 2; }
 
+  /* Obtekani textu u sudych sekci v pravo od obrazku */
   .first:nth-of-type(even) img,
-  .first:nth-of-type(even) a {
-    float: left;
-  }
+  .first:nth-of-type(even) a { float: left; }
+
   #kontakty img {
     border-radius: 50%;
     width: 40%;
   }
-  .hobby_container {
-    grid-template-columns: 1fr 1fr 1fr;
-  }
-  #hobby article:nth-of-type(3n) {
-    transform-origin: top right;
-  }
-  #hobby article:nth-of-type(3n-1) {
-    transform-origin: top center;
-  }
-  #hobby article:nth-of-type(3n-2) {
-    transform-origin: top left;
-  }
-  #hobby h2 {
-    grid-column: span 3;
-  }
+
+  /* hobby – 3 sloupce */
+  .hobby_container { grid-template-columns: 1fr 1fr 1fr; }
+  #hobby h2 { grid-column: span 3; }
+
+  /* Spravny smer rozbaleni karet ve 3 sloupcich */
+  #hobby article:nth-of-type(3n)   { transform-origin: top right; }
+  #hobby article:nth-of-type(3n-1) { transform-origin: top center; }
+  #hobby article:nth-of-type(3n-2) { transform-origin: top left; }
 }
+/*#endregion*/

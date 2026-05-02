@@ -1,13 +1,7 @@
-/* =========================
-   GLOBAL
-========================= */
 * {
   transition: 1s;
 }
 
-/* =========================
-   LAYOUT / CONTAINERS
-========================= */
 .timeline {
   height: 20vh;
   width: 100%;
@@ -26,9 +20,6 @@
   position: relative;
 }
 
-/* =========================
-   SLIDES / BACKGROUND DIVS
-========================= */
 .div {
   position: absolute;
   width: 100%;
@@ -46,9 +37,6 @@
   background-color: red;
 }
 
-/* =========================
-   ACTIVE / STATES
-========================= */
 .active {
   left: 0;
   opacity: 1;
@@ -59,9 +47,6 @@
   z-index: 10;
 }
 
-/* =========================
-   NAVIGATION BUTTONS
-========================= */
 .next,
 .previous {
   position: absolute;
@@ -81,9 +66,6 @@
   left: 0;
 }
 
-/* =========================
-   TIMELINE BASE LINE (before)
-========================= */
 .timeline_echo::before {
   content: "";
   position: absolute;
@@ -96,9 +78,7 @@
   box-sizing: border-box;
 }
 
-/* =========================
-   TIMELINE ACTIVE LINE (after)
-========================= */
+
 .timeline_echo::after {
   content: "";
   position: absolute;
@@ -112,9 +92,6 @@
   transition: width 0.4s ease, left 0.4s ease;
 }
 
-/* =========================
-   TIMELINE ITEMS
-========================= */
 .timeline_echo div {
   position: relative;
   flex: 1;
@@ -125,9 +102,6 @@
   background-color: white;
 }
 
-/* =========================
-   DOTS (before)
-========================= */
 .timeline_echo div::before {
   content: "";
   background-color: rgb(207, 191, 191);
@@ -143,16 +117,10 @@
   transition: background-color 0.2s ease 0.4s;
 }
 
-/* =========================
-   DOT ACTIVE STATE
-========================= */
 .timeline_echo div.active::before {
   background-color: red;
 }
 
-/* =========================
-   GLOBAL INTERACTIONS
-========================= */
 .timeline_echo div,
 .button_active {
   cursor: pointer;

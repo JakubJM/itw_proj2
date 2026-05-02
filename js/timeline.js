@@ -1,7 +1,7 @@
-let i = 1;
-let isAnimating = false;
+let i = 1; // aktualni index
+let isAnimating = false; // jestli bezi animace
 
-// 🔧 pomocná funkce – střed prvku v %
+// Pomocna funkce pro ziskani stredu prvku v procentech
 function getCenterPercent(item, timeline) {
   const itemOffset = item.offset().left;
   const timelineOffset = timeline.offset().left;
@@ -10,7 +10,7 @@ function getCenterPercent(item, timeline) {
   return (center / timeline.outerWidth()) * 100;
 }
 
-// 🔧 šedá základní čára (fix pro libovolný počet, třeba 7)
+// Nastaveni zakladni sede cary
 function updateBaseLine() {
   const timeline = jQuery('.education_timeline .timeline');
   const items = timeline.find('div');
@@ -25,7 +25,9 @@ function updateBaseLine() {
   timeline.css('--base-width', (lastPercent - firstPercent) + '%');
 }
 
+// Aktualizace timeline pri zmene indexu
 function updateTimeline(newIndex, count) {
+  // zabrani opakovani animace
   if (isAnimating || newIndex === i) return;
   isAnimating = true;
 
@@ -43,12 +45,13 @@ function updateTimeline(newIndex, count) {
 
   const isForward = newIndex > oldIndex;
 
+  // nastaveni pozice cervene cary
   timeline.css({
     '--line-left': (isForward ? oldPercent : newPercent) + '%',
     '--line-width': Math.abs(newPercent - oldPercent) + '%'
   });
 
-  // šipky
+  // sipky
   jQuery('.education_timeline .previous')
     .toggleClass('button_active', i > 1);
 
@@ -59,11 +62,11 @@ function updateTimeline(newIndex, count) {
   jQuery('.education_timeline > .div').removeClass('active');
   jQuery('.education_timeline > .div[data-index="' + i + '"]').addClass('active');
 
-  // timeline indikátor
+  // aktivni bod v timeline
   items.removeClass('active');
   items.eq(i - 1).addClass('active');
 
-  // smrštění čáry
+  // po chvili zmensi caru
   setTimeout(function () {
     timeline.css({
       '--line-left': newPercent + '%',
@@ -73,7 +76,7 @@ function updateTimeline(newIndex, count) {
   }, 400);
 }
 
-// POSLUCHAČI
+// Kliknuti na sipky
 jQuery('.education_timeline .next, .education_timeline .previous').click(function () {
   const count = jQuery('.education_timeline .timeline div').length;
   const nextI = jQuery(this).hasClass('next') ? i + 1 : i - 1;
@@ -83,26 +86,27 @@ jQuery('.education_timeline .next, .education_timeline .previous').click(functio
   }
 });
 
+// Kliknuti na body v timeline
 jQuery('.education_timeline .timeline div').click(function () {
   const count = jQuery('.education_timeline .timeline div').length;
   updateTimeline(parseInt(jQuery(this).attr('data-index'), 10), count);
 });
 
-// 🔧 INIT
+// Inicializace po nacteni stranky
 jQuery(document).ready(function () {
   const timeline = jQuery('.education_timeline .timeline');
   const items = timeline.find('div');
 
-  // nastavení základní čáry
+  // nastavi zakladni caru
   updateBaseLine();
 
-  // nastavení počáteční pozice červené čáry
+  // nastavi pocatecni pozici cervene cary
   const firstPercent = getCenterPercent(items.eq(0), timeline);
   timeline.css('--line-left', firstPercent + '%');
   timeline.css('--line-width', '0%');
 });
 
-// 🔧 resize fix
+// Aktualizace pri zmene velikosti okna
 jQuery(window).on('resize', function () {
   const timeline = jQuery('.education_timeline .timeline');
   const items = timeline.find('div');
