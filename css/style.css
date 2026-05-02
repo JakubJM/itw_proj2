@@ -205,7 +205,7 @@ section {
 
 /* Glow efekt na hover a tlacitka */
 .hover:hover,
-button:hover:not(".theme-switch"),
+button:hover:not(#theme-switch),
 .hover {
   filter: drop-shadow(0 0 10px rgba(var(--text-color), 0.9));
   transition: filter 0.2s ease-in-out !important;
