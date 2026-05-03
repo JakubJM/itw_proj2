@@ -9,12 +9,12 @@ HTML, CSS, JavaScript
 Stránka je optimalizována pro mobilní zařízení, tablety a počítače.
 
 Stránka obsahuje 6 hlavních sekcí:
--O mně
--Vzdělání
--Projekty
--Koníčky
--Galerie
--Kontakty
+- `O mně`
+- `Vzdělání`
+- `Projekty`
+- `Koníčky`
+- `Galerie`
+- `Kontakty`
 
 Navigace je globální a dostupná po celou dobu, u menších zařízení je skryta v hamburger menu.
 
@@ -101,7 +101,7 @@ Slouží pouze pro návrh a pozdější implementaci prvků.
 
 ## Odkazy
 
-Web je dostupný zde:
-https://jakubjm.github.io/itw_proj2/
-Github:
+Web je dostupný zde: 
+https://jakubjm.github.io/itw_proj2/  
+Github: 
 https://github.com/JakubJM
