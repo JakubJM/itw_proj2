@@ -76,7 +76,7 @@ Po kliknutí na kartu koníčků se rozbalí a objeví se obsah. Pomocí šipek 
 | Soubor | Popis |
 |---|---|
 | `style.css` | Styly pro index.html|
-| `style-let.css` | Styly pro plane.hmtl |
+| `style-let.css` | Styly pro plane.html |
 
 ### JavaScript
 | Soubor | Popis |
