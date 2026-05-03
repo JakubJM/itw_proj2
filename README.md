@@ -82,7 +82,7 @@ Po kliknutí na kartu koníčků se rozbalí a objeví se obsah. Pomocí šipek 
 | Soubor | Popis |
 |---|---|
 | `visible.js` | Postupné objevování obsahu podle scrollu |
-| `timeline.js` | Fungování timeline – přepínání divů, výpočet čáry od bodu k bodu, aktivní div |
+| `timeline.js` | Fungování timeline – přepínání divů, výpočet čáry od bodu k bodu, aktivní div, využití jQuery|
 | `galerie.js` | Sloučení mini-galerií do jedné velké |
 | `mini-galerie.js` | Malé galerie jednotlivých hobby kartiček |
 | `ham-menu.js` | Hamburger menu |
@@ -99,6 +99,11 @@ Slouží pouze pro návrh a pozdější implementaci prvků.
 - `test.html`
 - `style-test.html`
 - `test.js`
+
+## Využití Ai
+- `Formátování kódu a odstranění duplicit style,css, zdůvodu lepší orientace`
+- `Při implementaci animace červené čáry timeliny vzdělání`
+- `Hledání chyb`
 
 ## Odkazy
 
