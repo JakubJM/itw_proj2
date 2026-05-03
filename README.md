@@ -1,48 +1,51 @@
-# Osobni stranka
+Tady je přepsaná verze s diakritikou:
+
+---
+
+# Osobní stránka
 
 HTML, CSS, JavaScript, jQuery
 
-Polozky na ktere se da kliknout maji stin u mensich zarizeni.
-U vetsich zarizeni se po najetí na prvek objevi stin (glow efekt).
+Položky, na které se dá kliknout, mají stín u menších zařízení. U větších zařízení se po najetí na prvek objeví stín (glow efekt).
 
 ---
 
-## Navigacni menu
+## Navigační menu
 
-Kliknutim na jednotlive nazvy sekci se dostanete primo na sekce.
+Kliknutím na jednotlivé názvy sekcí se dostanete přímo na sekce.
 
-- **Galerie** – zobrazi vsechny fotky malych galerii sloucenych do jedne velke. Pomoci sipek se presunete na jine obrazky, nebo kliknutim na konkretni miniaturu. Zavre se pomoci tlacitka s krizkem.
-- **Mesic / Slunce** – prepinani stylu stranky na dark / light. Vybrany styl zustane i pri opusteni nebo obnoveni stranky.
+- **Galerie** – zobrazí všechny fotky malých galerií sloučených do jedné velké. Pomocí šipek se přesunete na jiné obrázky, nebo kliknutím na konkrétní miniaturu. Zavře se pomocí tlačítka s křížkem.
+- **Měsíc / Slunce** – přepínání stylu stránky na dark / light. Vybraný styl zůstane i při opuštění nebo obnovení stránky.
 
 ---
 
-## Vzdelani
+## Vzdělání
 
-Obsahuje timeline, na ktere cervene kolecko urcuje aktualni clanek. Prepinat se da kliknutim na konkretni bod na timeline nebo pomoci tlacitek po bocich sekce. Navrh a implementaci jsem vymyslel sam – s efektem prelitnuti kulicky (cerveny bar) a vypoctem sirky timeline z bodu k bodu mi pomahalo AI.
+Obsahuje timeline, na které červené kolečko určuje aktuální článek. Přepínat se dá kliknutím na konkrétní bod na timeline nebo pomocí tlačítek po bocích sekce. Návrh a implementaci jsem vymyslel sám – s efektem přelétnutí kuličky (červený bar) a výpočtem šířky timeline z bodu k bodu mi pomáhalo AI.
 
 ---
 
 ## Projekty
 
-Kliknutim na obrazek se presunete na konkretni projekt. U HTML stranky vas to hodi na odkaz stare skolni stranky, pozdeji nahradim souborem se strankou. U JavaScript letadla se otevře nova karta s letadlem. Nektere fotky nemusi fungovat kvuli spatne ceste, vznikle pri rychle uprave.
+Kliknutím na obrázek se přesunete na konkrétní projekt. U HTML stránky vás to hodí na odkaz staré školní stránky, později nahradím souborem se stránkou. U JavaScript letadla se otevře nová karta s letadlem. Některé fotky nemusí fungovat kvůli špatné cestě, vzniklé při rychlé úpravě.
 
 ### JavaScript letadlo
 
-Dole je lista s tlacitky:
+Dole je lišta s tlačítky:
 
-| Tlacitko | Funkce |
+| Tlačítko | Funkce |
 |---|---|
 | Start / Stop | Zapne nebo pauzne hru |
-| BOOM | Shodi bombu – nejde shodit behem vzletu nebo pokud uz nejaka pada |
-| Landing gear | Zatahuje / vytahuje podvozek (pouze vizualni) |
+| BOOM | Shodí bombu – nejde shodit během vzletu nebo pokud už nějaká padá |
+| Landing gear | Zatahuje / vytahuje podvozek (pouze vizuální) |
 
-Vedle tlacitka Landing gear se vybira typ bomby. Vpravo je ukazatel paliva – pokud dojde, hra skonci a pres celou obrazovku se objevi napis restart. Po kliknuti se hra restartuje. Cilem je trefovat nepratelske tanky a sbirat skore, tanky jsou omezene.
+Vedle tlačítka Landing gear se vybírá typ bomby. Vpravo je ukazatel paliva – pokud dojde, hra skončí a přes celou obrazovku se objeví nápis restart. Po kliknutí se hra restartuje. Cílem je trefovat nepřátelské tanky a sbírat skóre, tanky jsou omezené.
 
 ---
 
-## Konicky
+## Koníčky
 
-Po kliknuti na kartu konicku se rozbali a objevi se obsah. Pomoci sipek se da prepinat obrazek. Kliknutim znovu na kartu nebo na jinou kartu se karta zavre s aktualnim obrazkem.
+Po kliknutí na kartu koníčků se rozbalí a objeví se obsah. Pomocí šipek se dá přepínat obrázek. Kliknutím znovu na kartu nebo na jinou kartu se karta zavře s aktuálním obrázkem.
 
 ---
 
@@ -51,8 +54,8 @@ Po kliknuti na kartu konicku se rozbali a objevi se obsah. Pomoci sipek se da pr
 ### HTML
 | Soubor | Popis |
 |---|---|
-| `index.html` | Hlavni stranka |
-| `plane.html` | Stranka minihry, stredoskolsky projekt |
+| `index.html` | Hlavní stránka |
+| `plane.html` | Stránka minihry, středoškolský projekt |
 
 ### CSS
 | Soubor | Popis |
@@ -62,24 +65,24 @@ Po kliknuti na kartu konicku se rozbali a objevi se obsah. Pomoci sipek se da pr
 ### JavaScript
 | Soubor | Popis |
 |---|---|
-| `visible.js` | Postupne objevovani obsahu podle scrollu |
-| `timeline.js` | Fungovani timeline – prepinani divu, vypocet cary od bodu k bodu, aktivni div |
-| `galerie.js` | Slouceni mini-galerii do jedne velke |
-| `mini-galerie.js` | Male galerie jednotlivych hobby karticek |
+| `visible.js` | Postupné objevování obsahu podle scrollu |
+| `timeline.js` | Fungování timeline – přepínání divů, výpočet čáry od bodu k bodu, aktivní div |
+| `galerie.js` | Sloučení mini-galerií do jedné velké |
+| `mini-galerie.js` | Malé galerie jednotlivých hobby kartiček |
 | `ham-menu.js` | Hamburger menu |
-| `my-age.js` | Vypocet aktualniho veku |
-| `theme-switch.js` | Dark / light mode prepinac |
+| `my-age.js` | Výpočet aktuálního věku |
+| `theme-switch.js` | Dark / light mode přepínač |
 
 ### jQuery
 | Soubor | Popis |
 |---|---|
-| `article-zoom.js` | Pridavani tridy `active` pro rozbaleni karty |
+| `article-zoom.js` | Přidávání třídy `active` pro rozbalení karty |
 
 ---
 
-## Vedlejsi soubory
+## Vedlejší soubory
 
-Slouzi pouze pro navrh a pozdejsi implementaci prvku.
+Slouží pouze pro návrh a pozdější implementaci prvků.
 
 - `test.html`
 - `style-test.html`
