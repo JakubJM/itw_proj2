@@ -208,7 +208,7 @@ section {
 button:hover:not(#theme-switch),
 .hover {
   filter: drop-shadow(0 0 10px rgba(var(--text-color), 0.9));
-  transition: filter 0.2s ease-in-out !important;
+  transition: filter 0.2s ease-in-out;
 }
 button,
 .hover {cursor: pointer;}
@@ -483,7 +483,10 @@ nav {
 /*#endregion*/
 
 /*#region hobby */
-#hobby { position: relative; z-index: 10; }
+#hobby { 
+  position: relative;
+  z-index: 10;
+}
 
 .hobby_container {
   width: 90%;
@@ -526,7 +529,7 @@ nav {
   justify-content: center;
   overflow: hidden;
   border-radius: 1rem;
-  transition: transform 1s, width 1s, border 1s, z-index 0s 1s;
+  transition: filter 0.2s ease-in-out, transform 1s ease, width 1s ease, border 1s ease;
   cursor: pointer;
 }
 
@@ -601,7 +604,6 @@ nav {
 
 /* Rozbalena karta */
 #hobby article.active {
-  transition: transform 1s, width 1s, border 1s, z-index 0s 0s;
   z-index: 3;
   width: 100%;
   height: fit-content;

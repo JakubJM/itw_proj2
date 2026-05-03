@@ -1,14 +1,15 @@
-// Kliknuti na clanek
-jQuery('article').click(function (e) {
+document.querySelectorAll('article').forEach(article => {
+  article.addEventListener('click', (e) => {
 
-  // Pokud bylo kliknuto na tlacitko uvnitr clanku, nic nedelej
-  if (jQuery(e.target).closest('button').length) {
-    return;
-  }
+    // Ignorovani buttonu
+    if (e.target.closest('button')) return;
 
-  // Zavre vsechny ostatni clanky
-  jQuery('article').not(this).removeClass('active');
+    // Max 1 active
+    document.querySelectorAll('article').forEach(a => {
+      if (a !== article) a.classList.remove('active');
+    });
 
-  // Prepne aktivni stav u kliknuteho clanku
-  jQuery(this).toggleClass('active');
+    // Toggle
+    article.classList.toggle('active');
+  });
 });

@@ -4,7 +4,21 @@ Tady je přepsaná verze s diakritikou:
 
 # Osobní stránka
 
-HTML, CSS, JavaScript, jQuery
+HTML, CSS, JavaScript
+
+Stránka je optimalizována pro mobilní zařízení, tablety a počítače.
+
+Stránka obsahuje 6 hlavních sekcí:
+-O mně
+-Vzdělání
+-Projekty
+-Koníčky
+-Galerie
+-Kontakty
+
+Navigace je globální a dostupná po celou dobu, u menších zařízení je skryta v hamburger menu.
+
+Stránka je řešena jako single page s plynulým scrollováním.
 
 Položky, na které se dá kliknout, mají stín u menších zařízení. U větších zařízení se po najetí na prvek objeví stín (glow efekt).
 
@@ -27,9 +41,10 @@ Obsahuje timeline, na které červené kolečko určuje aktuální článek. Př
 
 ## Projekty
 
-Kliknutím na obrázek se přesunete na konkrétní projekt. U HTML stránky vás to hodí na odkaz staré školní stránky, později nahradím souborem se stránkou. U JavaScript letadla se otevře nová karta s letadlem. Některé fotky nemusí fungovat kvůli špatné cestě, vzniklé při rychlé úpravě.
+Kliknutím na obrázek se přesunete na konkrétní projekt. U HTML stránky přesměruje uživatele na staré školní stránky, později nahradím souborem se stránkou. U JavaScript letadla se otevře nová karta s letadlem.
 
 ### JavaScript letadlo
+Některé fotky mohou být nedostupné kvůli špatné cestě, vzniklé při rychlé úpravě.
 
 Dole je lišta s tlačítky:
 
@@ -72,10 +87,6 @@ Po kliknutí na kartu koníčků se rozbalí a objeví se obsah. Pomocí šipek 
 | `ham-menu.js` | Hamburger menu |
 | `my-age.js` | Výpočet aktuálního věku |
 | `theme-switch.js` | Dark / light mode přepínač |
-
-### jQuery
-| Soubor | Popis |
-|---|---|
 | `article-zoom.js` | Přidávání třídy `active` pro rozbalení karty |
 
 ---
@@ -87,3 +98,10 @@ Slouží pouze pro návrh a pozdější implementaci prvků.
 - `test.html`
 - `style-test.html`
 - `test.js`
+
+## Odkazy
+
+Web je dostupný zde:
+https://jakubjm.github.io/itw_proj2/
+Github:
+https://github.com/JakubJM
