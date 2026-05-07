@@ -478,9 +478,22 @@ nav {
 #project .text { padding: 0; }
 
 #project .text p,
-#project .text h3,
-#project .text img { padding: 0.2rem; }
+#project .text h3 { padding: 0.2rem; }
+#project .text img { margin: 0.2rem; }
 /*#endregion*/
+
+/*#region noImg and noVideo */
+img {
+  background-color: rgb(var(--text-color));
+  color: rgb(var(--base-color));
+  text-align: center;
+}
+video {
+  background-color: green;
+  color: rgb(var(--base-color));
+}
+
+/*#endregion */
 
 /*#region hobby */
 #hobby { 
@@ -558,14 +571,14 @@ nav {
   animation: zmizeni 1s forwards;
 }
 
-/* Nadpis karticy, zobrazen jen kdyz je zavrena */
+/* Nadpis karty, zobrazen jen kdyz je zavrena */
 #hobby h3 {
   position: absolute;
   animation: objeveni 1s forwards;
   z-index: 2;
 }
 
-/* Mni galerie karty s obrazkem */
+/* Mini galerie karty s obrazkem */
 #hobby .image_gallery {
   width: 100%;
   position: relative;
