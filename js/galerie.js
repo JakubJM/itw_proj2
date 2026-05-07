@@ -4,16 +4,16 @@ const imageThumbs = document.getElementById("image_thumbs");
 const closeButton = document.getElementById("close");
 const openButton = document.querySelector(".open");
 const gallery = document.getElementById("image_gallery");
-const prevButton = document.querySelector(".previous");
-const nextButton = document.querySelector(".next");
+const prevButton = document.querySelector(".previous.gallery");
+const nextButton = document.querySelector(".next.gallery");
 
-let vsechnyNahledy = [];
-let aktualniIndex = 0;
+let preview = [];
+let index = 0;
 
 // Nacteni dat z divu a vytvoreni nahledu
-const zdrojeDat = document.querySelectorAll(".image_gallery[data-prefix]");
+const dataSource = document.querySelectorAll(".image_gallery[data-prefix]");
 
-zdrojeDat.forEach(zdroj => {
+dataSource.forEach(zdroj => {
     const prefix = zdroj.getAttribute("data-prefix");
     const maxCount = parseInt(zdroj.getAttribute("data-max"));
 
@@ -26,24 +26,24 @@ zdrojeDat.forEach(zdroj => {
 
         // Kliknuti na nahled
         thumb.addEventListener("click", function () {
-            aktualniIndex = vsechnyNahledy.indexOf(this);
-            aktualizujGalerii();
+            index = preview.indexOf(this);
+            refreshGallery();
             gallery.classList.add("is-visible");
         });
 
         imageThumbs.appendChild(thumb);
-        vsechnyNahledy.push(thumb);
+        preview.push(thumb);
     }
 });
 
 // Funkce ktera prepne aktualni obrazek
-function aktualizujGalerii() {
-    const aktivniThumb = vsechnyNahledy[aktualniIndex];
+function refreshGallery() {
+    const aktivniThumb = preview[index];
     currentImage.src = aktivniThumb.src;
     currentImage.alt = aktivniThumb.alt;
 
     // Nastavi aktivni tridu
-    vsechnyNahledy.forEach(t => t.classList.remove("active"));
+    preview.forEach(t => t.classList.remove("active"));
     aktivniThumb.classList.add("active");
 
     // Posune seznam tak aby byl aktivni uprostred
@@ -52,20 +52,20 @@ function aktualizujGalerii() {
 }
 
 // Nastavi prvni obrazek po nacteni
-if (vsechnyNahledy.length > 0) {
-    aktualizujGalerii();
+if (preview.length > 0) {
+    refreshGallery();
 }
 
 // Tlacitko dalsi obrazek
 nextButton.addEventListener("click", function () {
-    aktualniIndex = (aktualniIndex + 1) % vsechnyNahledy.length;
-    aktualizujGalerii();
+    index = (index + 1) % preview.length;
+    refreshGallery();
 });
 
 // Tlacitko predchozi obrazek
 prevButton.addEventListener("click", function () {
-    aktualniIndex = (aktualniIndex - 1 + vsechnyNahledy.length) % vsechnyNahledy.length;
-    aktualizujGalerii();
+    index = (index - 1 + preview.length) % preview.length;
+    refreshGallery();
 });
 
 // Otevreni galerie
