@@ -303,7 +303,7 @@ nav {
 /*#region person */
 .first {
   padding: 0 2rem 2rem 2rem;
-  display: grid;
+  display: grid
 }
 
 .first img {
@@ -479,7 +479,8 @@ nav {
 
 #project .text p,
 #project .text h3 { padding: 0.2rem; }
-#project .text img { margin: 0.2rem; }
+#project .text img:not(a>img),
+#project .text a { margin: 0 1rem; }
 /*#endregion*/
 
 /*#region noImg and noVideo */
@@ -488,6 +489,7 @@ img {
   color: rgb(var(--base-color));
   text-align: center;
 }
+
 video {
   background-color: green;
   color: rgb(var(--base-color));
@@ -821,10 +823,12 @@ footer p {
   }
 
   /* Text obteka fotky */
-  .first { display: block; }
-
   .first:nth-of-type(even) img,
   .first:nth-of-type(even) a { float: right; }
+
+  .first {
+    display: block;
+  }
 
   .first img:not(a img),
   .first a {
